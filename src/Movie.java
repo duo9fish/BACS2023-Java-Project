@@ -7,11 +7,11 @@ public class Movie {
     private String moviePGRating; 
 
     public Movie(String name, String language, String genre, String time, String PGRating) {
-        movieName = name;
-        movieLang = language;
-        movieGenre = genre;
-        movieTime = time;
-        moviePGRating = PGRating;
+        this.movieName = name;
+        this.movieLang = language;
+        this.movieGenre = genre;
+        this.movieTime = time;
+        this.moviePGRating = PGRating;
     }
 
     //---GETTERS AND SETTERS
