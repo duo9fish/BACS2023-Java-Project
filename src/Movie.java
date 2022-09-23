@@ -15,48 +15,6 @@ public class Movie {
         this.movieTime = time;
         this.moviePGRating = PGRating;
     }
-
-    //---GETTERS AND SETTERS
-    public String getMovieName() {
-        return this.movieName;
-    }
-
-    public void setMovieName(String movieName) {
-        this.movieName = movieName;
-    }
-
-    public String getMovieLang() {
-        return this.movieLang;
-    }
-
-    public void setMovieLang(String movieLang) {
-        this.movieLang = movieLang;
-    }
-
-    public String getMovieGenre() {
-        return this.movieGenre;
-    }
-
-    public void setMovieGenre(String movieGenre) {
-        this.movieGenre = movieGenre;
-    }
-
-    public String getMovieTime() {
-        return this.movieTime;
-    }
-
-    public void setMovieTime(String movieTime) {
-        this.movieTime = movieTime;
-    }
-
-    public String getMoviePGRating() {
-        return this.moviePGRating;
-    }
-
-    public void setMoviePGRating(String moviePGRating) {
-        this.moviePGRating = moviePGRating;
-    }
-    //---
     
     public void printMovieDetails() {
         System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|\n", movieName, movieLang, movieGenre, movieTime, moviePGRating);
