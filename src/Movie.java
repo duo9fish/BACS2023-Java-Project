@@ -58,7 +58,14 @@ public class Movie {
     }
     //---
     
-    public void movieDetails() {
+    public void printMovieDetails() {
         System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|\n", movieName, movieLang, movieGenre, movieTime, moviePGRating);
+    }
+
+    public void movieTableHeader() {
+        System.out.println("----------------------------------------------------------------------");
+        System.out.printf("|%-3s|%-20s|%-10s|%-10s|%-10s|%-10s|\n", 
+                 "No.", "Movie Name", "Language", "Genre", "Show Time", "PG Rating");
+        System.out.println("|--------------------------------------------------------------------|");
     }
 }

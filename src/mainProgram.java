@@ -15,29 +15,37 @@ public class mainProgram {
         //Header and Available Movies
         System.out.printf("\nWelcome to XXXX Movie Ticketing System" + 
                           "\n======================================\n");
-        System.out.println("\nAvailable Movies for today: \n");
-        System.out.printf("|%-3s|%-20s|%-10s|%-10s|%-10s|%-10s|\n", 
-                 "No.", "Movie Name", "Language", "Genre", "Show Time", "PG Rating");
-        System.out.println("|--------------------------------------------------------------------|");
+        System.out.println("\nAvailable Movies for today: ");
+        movies[0].movieTableHeader();
         for(int i = 0; i<5; i++){
             System.out.printf("|%-3d", i+1);
-            movies[i].movieDetails();
+            movies[i].printMovieDetails();
         }
+        System.out.println("----------------------------------------------------------------------");
 
         //Input movie Number
-        Scanner movieChose = new Scanner(System.in);
-        System.out.print("\nChoose your movie: ");
-        movieChose.next();
-        
-        do{
-            System.out.println("Input Invalid! Please Enter Numbers (e.g. 1-9) Only!");
+        Scanner sc = new Scanner(System.in);
+        int movieChose;
+        do {
             System.out.print("\nChoose your movie: ");
-            movieChose.next();
-        }while(!movieChose.hasNextInt());
+            while (!sc.hasNextInt()) {
+                System.out.println("Invalid input! Please enter NUMBERS ONLY!");
+                System.out.print("\nChoose your movie: ");
+                sc.next();
+            }
+            movieChose = sc.nextInt();
+            if (movieChose < 1 || movieChose > movies.length) {
+                System.out.println("Movie No." + movieChose + " does not exist! Please enter number 1-" + movies.length);
+            }
+            else {
+                break;
+            }
+        } while(movieChose < 1 || movieChose > movies.length);
 
-        System.out.println("Movie Chosen: ");
-        movies[(int)movieChose-1].movieDetails();;
-
-
+        System.out.println("\nMovie Chosen: ");
+        movies[0].movieTableHeader();
+        System.out.printf("|%-3d", movieChose);
+        movies[movieChose-1].printMovieDetails();
+        System.out.println("----------------------------------------------------------------------");
     }
 }
