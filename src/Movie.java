@@ -1,3 +1,5 @@
+
+
 public class Movie {
 
     private String movieName;
@@ -56,4 +58,7 @@ public class Movie {
     }
     //---
     
+    public void movieDetails() {
+        System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|\n", movieName, movieLang, movieGenre, movieTime, moviePGRating);
+    }
 }
