@@ -1,17 +1,24 @@
 public class Student extends Customer{
     private double studentPrice;
-    private double DISCOUNT = 0.75;
+    private final double DISCOUNT = 0.75;
 
-    public Student(double studentPrice, int adultQauntity, int childQuantity, int studentQuantity) {
+    public Student(int adultQauntity, int childQuantity, int studentQuantity) {
         super(adultQauntity, childQuantity, studentQuantity);
-        this.studentPrice = studentPrice;
+        
     }
 
     @Override
     public double calPrice() {
-        studentPrice = super.calPrice() * DISCOUNT;
+        this.studentPrice = super.calPrice() * DISCOUNT;
         return studentPrice;
     }
     
-    
+      public double calTotalPrice() {
+        return calPrice() * (double)super.getStudentQuantity();
+    }
+
+    @Override
+    public String toString() {
+        return "StudentPrice=" + calPrice() + "\ntotal Student Price = " + calTotalPrice();
+    }
 }

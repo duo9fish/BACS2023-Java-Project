@@ -3,7 +3,7 @@ public class Customer {
     private int adultQauntity;
     private int childQuantity;
     private int studentQuantity;
-    private final double ADULT_PRICE = 15.00;
+    private final double ADULT_PRICE = 17.00;
 
     public Customer(int adultQauntity, int childQuantity, int studentQuantity) {
         this.adultQauntity = adultQauntity;
@@ -38,6 +38,4 @@ public class Customer {
     public double calPrice() {
         return ADULT_PRICE;
     }
-    
-   
 }
