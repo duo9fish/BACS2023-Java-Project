@@ -4,7 +4,7 @@ public class mainProgram {
     public static void main(String[] args) {
         
         //Movies
-        Movie movies[] = {
+        Movie[] movies = {
             new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+"),
             new Movie("Your Name", "Japanese", "Fiction", "5:00PM", "13+"),
             new Movie("Deadpool", "English", "Comics", "5:00PM", "18+"),
@@ -13,7 +13,7 @@ public class mainProgram {
         };
 
         //Header and Available Movies
-        System.out.printf("\nWelcome to XXXX Movie Ticketing System" + 
+        System.out.printf("\nWelcome to TAR Movie Ticketing System" + 
                           "\n======================================\n");
         System.out.println("\nAvailable Movies for today: ");
         movies[0].movieTableHeader();
