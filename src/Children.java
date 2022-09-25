@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
-public class Children extends Customer{
+public class Children extends Customer {
     private double childPrice;
     private final double DISCOUNT = 0.5;
 
-    public Children() {}
+    public Children() {
+    }
 
     public Children(int adultQauntity, int childQuantity, int studentQuantity) {
         super(adultQauntity, childQuantity, studentQuantity);
@@ -15,27 +16,28 @@ public class Children extends Customer{
         do {
             Scanner sc = new Scanner(System.in);
             System.out.print("\nEnter quantity of children tickets needed: ");
-            while (!sc.hasNextInt()) {  
+            while (!sc.hasNextInt()) {
                 System.out.println("Invalid input! Please enter NUMBERS ONLY!");
                 System.out.print("\nEnter quantity of children tickets needed: ");
-                sc.next(); 
+                sc.next();
             }
-            qty = sc.nextInt();   
+            qty = sc.nextInt();
             if (super.inputValidation(qty, totalQty)) {
                 break;
             }
+            sc.close();
         } while (qty < 0 || qty > totalQty);
         return qty;
     }
-    
+
     @Override
     public double calPrice() {
         this.childPrice = super.calPrice() * DISCOUNT;
         return childPrice;
     }
-    
+
     public double calTotalPrice() {
-        return calPrice() * (double)super.getChildQuantity();
+        return calPrice() * (double) super.getChildQuantity();
     }
 
     @Override

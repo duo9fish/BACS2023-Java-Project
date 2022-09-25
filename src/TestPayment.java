@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class mainProgram {
+public class TestPayment {
     public static void main(String[] args) {
 
         //// --MOVIES MODULE--////

@@ -6,9 +6,10 @@ public class Movie {
     private String movieLang;
     private String movieGenre;
     private String movieTime;
-    private String moviePGRating; 
+    private String moviePGRating;
 
-    public Movie() {}
+    public Movie() {
+    }
 
     public Movie(String name, String language, String genre, String time, String PGRating) {
         this.movieName = name;
@@ -17,22 +18,23 @@ public class Movie {
         this.movieTime = time;
         this.moviePGRating = PGRating;
     }
-    
+
     public void printMovieDetails() {
-        System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|\n", movieName, movieLang, movieGenre, movieTime, moviePGRating);
+        System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|\n", movieName, movieLang, movieGenre, movieTime,
+                moviePGRating);
     }
 
     public void movieTableHeader() {
         System.out.println("----------------------------------------------------------------------");
-        System.out.printf("|%-3s|%-20s|%-10s|%-10s|%-10s|%-10s|\n", 
-                 "No.", "Movie Name", "Language", "Genre", "Show Time", "PG Rating");
+        System.out.printf("|%-3s|%-20s|%-10s|%-10s|%-10s|%-10s|\n",
+                "No.", "Movie Name", "Language", "Genre", "Show Time", "PG Rating");
         System.out.println("|--------------------------------------------------------------------|");
     }
 
     public int inputValidation(Movie[] movies) {
         int movieNum;
         Scanner sc = new Scanner(System.in);
-        do { 
+        do {
             System.out.print("\nChoose your movie: ");
             while (!sc.hasNextInt()) {
                 System.out.println("Invalid input! Please enter NUMBERS ONLY!");
@@ -42,12 +44,11 @@ public class Movie {
             movieNum = sc.nextInt();
             if (movieNum < 1 || movieNum > movies.length) {
                 System.out.println("Movie No." + movieNum + " does not exist! Please enter number 1-" + movies.length);
-            }
-            else {
+            } else {
                 break;
             }
-        } while(movieNum < 1 || movieNum > movies.length);
+        } while (movieNum < 1 || movieNum > movies.length);
+        sc.close();
         return movieNum;
     }
-}   
-
+}
