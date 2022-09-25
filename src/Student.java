@@ -2,8 +2,8 @@ public class Student extends Customer{
     private double studentPrice;
     private final double DISCOUNT = 0.75;
 
-    public Student(int adultQauntity, int childQuantity, int studentQuantity) {
-        super(adultQauntity, childQuantity, studentQuantity);
+    public Student(int adultQuantity, int childQuantity, int studentQuantity) {
+        super(adultQuantity, childQuantity, studentQuantity);
         
     }
 
