@@ -35,7 +35,7 @@ public class Adult extends Customer {
     }
     
       public double calTotalPrice() {
-        return calPrice() * (double)super.getAdultQauntity();
+        return calPrice() * (double)super.getAdultQuantity();
     }
 
     @Override

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Customer {
     
-    private int adultQauntity;
+    private int adultQuantity;
     private int childQuantity;
     private int studentQuantity;
     private final double ADULT_PRICE = 17.00;
@@ -10,13 +10,13 @@ public class Customer {
     public Customer(){}
 
     public Customer(int adultQauntity, int childQuantity, int studentQuantity) {
-        this.adultQauntity = adultQauntity;
+        this.adultQuantity = adultQauntity;
         this.childQuantity = childQuantity;
         this.studentQuantity = studentQuantity;
     }
 
-    public int getAdultQauntity() {
-        return adultQauntity;
+    public int getAdultQuantity() {
+        return adultQuantity;
     }
 
     public int getChildQuantity() {
@@ -27,8 +27,8 @@ public class Customer {
         return studentQuantity;
     }
 
-    public void setAdultQauntity(int adultQauntity) {
-        this.adultQauntity = adultQauntity;
+    public void setAdultQuantity(int adultQuantity) {
+        this.adultQuantity = adultQuantity;
     }
 
     public void setChildQuantity(int childQuantity) {
