@@ -37,28 +37,37 @@ public class mainProgram {
 
     ////--TICKETING MODULE--////
         Customer customers = new Customer();
-
+        int totalQuantity,
+            adultQuantity,
+            childQuantity,
+            studentQuantity;
         //Input Total Quantity of Ticket
-        int totalQuantity = customers.inputValidation(); //input and validation
+        do {
+            totalQuantity = customers.inputValidation(); //input and validation
 
-        //Input Quantity of Adult tickets 
-        Adult adult = new Adult();
-        int adultQuantity = adult.input(totalQuantity);
-        totalQuantity -= adultQuantity;
+            //Input Quantity of Adult tickets 
+            Adult adult = new Adult();
+            adultQuantity = adult.input(totalQuantity);
+            totalQuantity -= adultQuantity;
 
-        customers.ticketsLeft(totalQuantity); //Print total tickets (specified by user prior) left
+            customers.ticketsLeft(totalQuantity); //Print total tickets (specified by user prior) left
 
-        //Input Quantity of Children tickets
-        Children children = new Children();
-        int childQuantity = children.input(totalQuantity);
-        totalQuantity -= childQuantity; 
+            //Input Quantity of Children tickets
+            Children children = new Children();
+            childQuantity = children.input(totalQuantity);
+            totalQuantity -= childQuantity; 
 
-        customers.ticketsLeft(totalQuantity); //Print total tickets (specified by user prior) left
+            customers.ticketsLeft(totalQuantity); //Print total tickets (specified by user prior) left
 
-        //Input Quantity of Student tickets
-        Student student = new Student();
-        int studentQuantity = student.input(totalQuantity);
-        totalQuantity -= studentQuantity;
+            //Input Quantity of Student tickets
+            Student student = new Student();
+            studentQuantity = student.input(totalQuantity);
+            totalQuantity -= studentQuantity;
+
+            if (totalQuantity != 0) {
+                System.out.println("Total ticket count does not match with total quantity of tickets needed, Please try again!");
+            }
+        } while (totalQuantity != 0);
 
         // to pass value into customer class and those sub-classes for claculations purpose
         Customer adultTickets = new Adult(adultQuantity, childQuantity, studentQuantity);
