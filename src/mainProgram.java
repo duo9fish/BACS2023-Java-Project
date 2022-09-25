@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class mainProgram {
     public static void main(String[] args) {
         
-        //Movies
+    ////--MOVIES MODULE--////
+        Movie movie = new Movie();
         Movie movies[] = {
             new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+"),
             new Movie("Your Name", "Japanese", "Fiction", "5:00PM", "13+"),
@@ -12,40 +13,64 @@ public class mainProgram {
             new Movie("Imposter", "English", "History", "9:00PM", "18+")
         };
 
-        //Header and Available Movies
+        //Display Header and Available Movies
         System.out.printf("\nWelcome to XXXX Movie Ticketing System" + 
                           "\n======================================\n");
         System.out.println("\nAvailable Movies for today: ");
-        movies[0].movieTableHeader();
+        movie.movieTableHeader();
         for(int i = 0; i<5; i++){
             System.out.printf("|%-3d", i+1);
             movies[i].printMovieDetails();
         }
-        System.out.println("----------------------------------------------------------------------");
+        printLine(); 
 
         //Input movie Number
-        Scanner sc = new Scanner(System.in);
-        int movieChose;
-        do {
-            System.out.print("\nChoose your movie: ");
-            while (!sc.hasNextInt()) {
-                System.out.println("Invalid input! Please enter NUMBERS ONLY!");
-                System.out.print("\nChoose your movie: ");
-                sc.next();
-            }
-            movieChose = sc.nextInt();
-            if (movieChose < 1 || movieChose > movies.length) {
-                System.out.println("Movie No." + movieChose + " does not exist! Please enter number 1-" + movies.length);
-            }
-            else {
-                break;
-            }
-        } while(movieChose < 1 || movieChose > movies.length);
+        int movieChose = movie.inputValidation(movies);
 
+        //Display movie Chosen
         System.out.println("\nMovie Chosen: ");
-        movies[0].movieTableHeader();
+        movie.movieTableHeader();
         System.out.printf("|%-3d", movieChose);
         movies[movieChose-1].printMovieDetails();
-        System.out.println("----------------------------------------------------------------------");
+        printLine();     
+    ////--------------------////
+
+    ////--TICKETING MODULE--////
+        Customer customers = new Customer();
+
+        //Input Total Quantity of Ticket
+        int totalQuantity = customers.inputValidation(); //input and validation
+
+        //Input Quantity of Adult tickets 
+        Adult adult = new Adult();
+        int adultQuantity = adult.input(totalQuantity);
+        totalQuantity -= adultQuantity;
+
+        customers.ticketsLeft(totalQuantity); //Print total tickets (specified by user prior) left
+
+        //Input Quantity of Children tickets
+        Children children = new Children();
+        int childQuantity = children.input(totalQuantity);
+        totalQuantity -= childQuantity; 
+
+        customers.ticketsLeft(totalQuantity); //Print total tickets (specified by user prior) left
+
+        //Input Quantity of Student tickets
+        Student student = new Student();
+        int studentQuantity = student.input(totalQuantity);
+        totalQuantity -= studentQuantity;
+
+        // to pass value into customer class and those sub-classes for claculations purpose
+        Customer adultTickets = new Adult(adultQuantity, childQuantity, studentQuantity);
+        Customer childTickets = new Children(adultQuantity, childQuantity, studentQuantity);
+        Customer studentTickets = new Student(adultQuantity, childQuantity, studentQuantity);
+        
+        // to check the display value whether works or not.  //PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER
+        System.out.println(adultTickets.toString());
+        System.out.println(childTickets.toString());
+        System.out.println(studentTickets.toString());
+        //PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//delete later//
+    ////--------------------////
     }
+    public static void printLine(){ System.out.println("----------------------------------------------------------------------"); }
 }
