@@ -26,7 +26,6 @@ public class Student extends Customer {
             if (super.inputValidation(qty, totalQty)) {
                 break;
             }
-            sc.close();
         } while (qty < 0 || qty > totalQty);
         return qty;
     }
