@@ -48,7 +48,6 @@ public class Movie {
                 break;
             }
         } while (movieNum < 1 || movieNum > movies.length);
-        sc.close();
         return movieNum;
     }
 }

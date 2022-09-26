@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class mainProgram {
     public static void main(String[] args) {
 
-        //// --MOVIES MODULE--////
+    //// --MOVIES MODULE--////
         Movie movie = new Movie();
         Movie movies[] = {
                 new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+"),
@@ -33,14 +33,14 @@ public class mainProgram {
         System.out.printf("|%-3d", movieChose);
         movies[movieChose - 1].printMovieDetails();
         printLine();
-        //// --------------------////
+    //// --------------------////
 
-        //// --TICKETING MODULE--////
+    //// --TICKETING MODULE--////
         Customer customers = new Customer();
         int totalQuantity,
-                adultQuantity,
-                childQuantity,
-                studentQuantity;
+            adultQuantity,
+            childQuantity,
+            studentQuantity;
         // Input Total Quantity of Ticket
         do {
             totalQuantity = customers.inputValidation(); // input and validation
@@ -65,8 +65,7 @@ public class mainProgram {
             totalQuantity -= studentQuantity;
 
             if (totalQuantity != 0) {
-                System.out.println(
-                        "Total ticket count does not match with total quantity of tickets needed, Please try again!");
+                System.out.println("Total ticket count does not match with total quantity of tickets needed, Please try again!");
             }
         } while (totalQuantity != 0);
 
@@ -82,7 +81,7 @@ public class mainProgram {
         System.out.println(childTickets.toString());
         System.out.println(studentTickets.toString());
         // PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//delete later//
-        //// --------------------////
+    //// --------------------////
     }
 
     public static void printLine() {

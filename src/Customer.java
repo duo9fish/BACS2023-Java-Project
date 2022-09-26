@@ -47,23 +47,24 @@ public class Customer {
     public int inputValidation() {
         int qty;
         Scanner sc = new Scanner(System.in);
-        do { // Validation
+        do { //Validation
             System.out.print("\nEnter total quantity of ticket needed: ");
-            while (!sc.hasNextInt()) {
+            while (!sc.hasNextInt()) {      
                 System.out.println("Invalid input! Please enter NUMBERS ONLY!");
                 System.out.print("\nEnter total quantity of ticket needed: ");
-                sc.next();
+                sc.next();  
             }
             qty = sc.nextInt();
             if (qty < 1) {
                 System.out.println("Please buy at least ONE ticket!");
-            } else if (qty > 30) {
+            }
+            else if (qty > 30) {
                 System.out.println("You are not allowed to buy more than 30 tickets at one time!");
-            } else {
+            }
+            else {
                 break;
             }
-            //sc.close();
-        } while (qty < 1 || qty > 30);
+        } while (qty < 1 || qty > 30); 
         return qty;
     }
 
@@ -71,10 +72,12 @@ public class Customer {
         if (qty < 0) {
             System.out.println("Invalid input! Please enter POSITIVE NUMBERS ONLY");
             return false;
-        } else if (qty > totalQty) {
+        }
+        else if (qty > totalQty) {
             System.out.println("Ticket count cannot be more than total quantity of tickets needed!");
             return false;
-        } else {
+        }
+        else {
             return true;
         }
     }
