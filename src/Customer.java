@@ -62,7 +62,7 @@ public class Customer {
             } else {
                 break;
             }
-            sc.close();
+            //sc.close();
         } while (qty < 1 || qty > 30);
         return qty;
     }
