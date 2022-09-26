@@ -44,6 +44,6 @@ public class Adult extends Customer {
 
     @Override
     public String toString() {
-        return "AdultPrice=" + calPrice() + "\ntotal Adult Price = " + calTotalPrice();
+        return "\nAdult Price : " + calPrice() + "\nTotal Adult Price : " + calTotalPrice();
     }
 }

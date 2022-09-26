@@ -1,36 +1,36 @@
 public class TestPayment {
     public static void main(String[] args) {
 
-        //// --MOVIES MODULE--////
-        Movie movie = new Movie();
-        Movie movies[] = {
-                new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+"),
-                new Movie("Your Name", "Japanese", "Fiction", "5:00PM", "13+"),
-                new Movie("Deadpool", "English", "Comics", "5:00PM", "18+"),
-                new Movie("Among Us", "English", "Sci-Fi", "8:00PM", "13+"),
-                new Movie("Imposter", "English", "History", "9:00PM", "18+")
-        };
+            //// --MOVIES MODULE--////
+            Movie movie = new Movie();
+            Movie movies[] = {
+                    new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+",2),
+                    new Movie("Your Name", "Japanese", "Fiction", "5:00PM", "13+",5),
+                    new Movie("Deadpool", "English", "Comics", "5:00PM", "18+",1),
+                    new Movie("Among Us", "English", "Sci-Fi", "8:00PM", "13+",7),
+                    new Movie("Imposter", "English", "History", "9:00PM", "18+",4)
+            };
 
-        // Display Header and Available Movies
-        System.out.printf("\nWelcome to XXXX Movie Ticketing System" +
-                "\n======================================\n");
-        System.out.println("\nAvailable Movies for today: ");
-        movie.movieTableHeader();
-        for (int i = 0; i < 5; i++) {
-            System.out.printf("|%-3d", i + 1);
-            movies[i].printMovieDetails();
-        }
-        printLine();
+            // Display Header and Available Movies
+            System.out.printf("\nWelcome to XXXX Movie Ticketing System" +
+                    "\n======================================\n");
+            System.out.println("\nAvailable Movies for today: ");
+            movie.movieTableHeader();
+            for (int i = 0; i < 5; i++) {
+                System.out.printf("|%-3d", i + 1);
+                movies[i].printMovieDetails();
+            }
+            printLine();
 
-        // Input movie Number
-        int movieChose = movie.inputValidation(movies);
+            // Input movie Number
+            int movieChose = movie.inputValidation(movies);
 
-        // Display movie Chosen
-        System.out.println("\nMovie Chosen: ");
-        movie.movieTableHeader();
-        System.out.printf("|%-3d", movieChose);
-        movies[movieChose - 1].printMovieDetails();
-        printLine();
+            // Display movie Chosen
+            System.out.println("\nMovie Chosen: ");
+            movie.movieTableHeader();
+            System.out.printf("|%-3d", movieChose);
+            movies[movieChose - 1].printMovieDetails();
+            printLine();
         //// --------------------////
 
         //// --TICKETING MODULE--////

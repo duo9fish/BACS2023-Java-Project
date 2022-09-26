@@ -6,11 +6,11 @@ public class mainProgram {
     //// --MOVIES MODULE--////
         Movie movie = new Movie();
         Movie movies[] = {
-                new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+"),
-                new Movie("Your Name", "Japanese", "Fiction", "5:00PM", "13+"),
-                new Movie("Deadpool", "English", "Comics", "5:00PM", "18+"),
-                new Movie("Among Us", "English", "Sci-Fi", "8:00PM", "13+"),
-                new Movie("Imposter", "English", "History", "9:00PM", "18+")
+                new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+",2),
+                new Movie("Your Name", "Japanese", "Fiction", "5:00PM", "13+",5),
+                new Movie("Deadpool", "English", "Comics", "5:00PM", "18+",1),
+                new Movie("Among Us", "English", "Sci-Fi", "8:00PM", "13+",3),
+                new Movie("Imposter", "English", "History", "9:00PM", "18+",4)
         };
 
         // Display Header and Available Movies
@@ -22,7 +22,6 @@ public class mainProgram {
             System.out.printf("|%-3d", i + 1);
             movies[i].printMovieDetails();
         }
-        printLine();
 
         // Input movie Number
         int movieChose = movie.inputValidation(movies);
@@ -32,7 +31,6 @@ public class mainProgram {
         movie.movieTableHeader();
         System.out.printf("|%-3d", movieChose);
         movies[movieChose - 1].printMovieDetails();
-        printLine();
     //// --------------------////
 
     //// --TICKETING MODULE--////
@@ -82,9 +80,5 @@ public class mainProgram {
         System.out.println(studentTickets.toString());
         // PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//delete later//
     //// --------------------////
-    }
-
-    public static void printLine() {
-        System.out.println("----------------------------------------------------------------------");
     }
 }

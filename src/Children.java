@@ -43,6 +43,6 @@ public class Children extends Customer {
 
     @Override
     public String toString() {
-        return "ChildPrice=" + calPrice() + "\ntotal Child Price = " + calTotalPrice();
+        return "\nChild Price : " + calPrice() + "\nTotal Child Price : " + calTotalPrice();
     }
 }

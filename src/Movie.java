@@ -7,28 +7,31 @@ public class Movie {
     private String movieGenre;
     private String movieTime;
     private String moviePGRating;
+    public int movieHallNumber;
 
     public Movie() {
     }
 
-    public Movie(String name, String language, String genre, String time, String PGRating) {
+    public Movie(String name, String language, String genre, String time, String PGRating, int movieHallNumber) {
         this.movieName = name;
         this.movieLang = language;
         this.movieGenre = genre;
         this.movieTime = time;
         this.moviePGRating = PGRating;
+        this.movieHallNumber = movieHallNumber;
     }
 
     public void printMovieDetails() {
-        System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|\n", movieName, movieLang, movieGenre, movieTime,
-                moviePGRating);
+        System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|%-18s|\n", movieName, movieLang, movieGenre, movieTime,
+                moviePGRating, movieHallNumber);
+        System.out.println("----------------------------------------------------------------------------------------|");
     }
 
     public void movieTableHeader() {
-        System.out.println("----------------------------------------------------------------------");
-        System.out.printf("|%-3s|%-20s|%-10s|%-10s|%-10s|%-10s|\n",
-                "No.", "Movie Name", "Language", "Genre", "Show Time", "PG Rating");
-        System.out.println("|--------------------------------------------------------------------|");
+        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.printf("|%-3s|%-20s|%-10s|%-10s|%-10s|%-10s|%18s|\n",
+                "No.", "Movie Name", "Language", "Genre", "Show Time", "PG Rating", "Movie Hall Number");
+        System.out.println("|---------------------------------------------------------------------------------------|");
     }
 
     public int inputValidation(Movie[] movies) {
