@@ -48,6 +48,7 @@ public class Customer {
         int qty;
         Scanner sc = new Scanner(System.in);
         do { //Validation
+            
             System.out.print("\nEnter total quantity of ticket needed: ");
             while (!sc.hasNextInt()) {      
                 System.out.println("Invalid input! Please enter NUMBERS ONLY!");
