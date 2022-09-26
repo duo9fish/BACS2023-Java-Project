@@ -13,6 +13,7 @@ public class Children extends Customer {
 
     public int input(int totalQty) {
         int qty;
+        
         do {
             Scanner sc = new Scanner(System.in);
             System.out.print("\nEnter quantity of children tickets needed: ");
