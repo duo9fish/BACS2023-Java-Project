@@ -100,7 +100,9 @@ public class mainProgram {
             theatre.removeSeat(validatedSeatNumber); // remove seat number (mark as occupied)
             theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // store seat info in takenSeats[]
         }
+        //// --------------------////
 
+        //// --TICKET PRINTING MODULE--////
         // Displaying Bill for Payment
         Adult adu = new Adult();
         Children chi = new Children();
