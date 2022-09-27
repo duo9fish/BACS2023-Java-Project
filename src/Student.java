@@ -16,10 +16,10 @@ public class Student extends Customer {
         int qty;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.print("\nEnter quantity of adult tickets needed: ");
+            System.out.print("\nEnter quantity of student tickets needed: ");
             while (!sc.hasNextInt()) {
                 System.out.println("Invalid input! Please enter NUMBERS ONLY!");
-                System.out.print("\nEnter quantity of adult tickets needed: ");
+                System.out.print("\nEnter quantity of student tickets needed: ");
                 sc.next();
             }
             qty = sc.nextInt();
