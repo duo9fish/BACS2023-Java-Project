@@ -55,20 +55,19 @@ public class Theatre {
 		}
 	}
 
-	public int inputSeatNumber(int i) {
+	public int inputValidation(int i) {
 		Scanner sc = new Scanner(System.in); // declare scanner object
 		int seatNumber;
-		
-		System.out.print("\nEnter Seat Number " + (i+1) + " : "); // input seat number
-		seatNumber = sc.nextInt();
-		return seatNumber;
-	}
-
-	public int inputValidation(int seatNumber, int i) {
-		Scanner sc = new Scanner(System.in); // declare scanner object
 		Boolean validate_retry = true;
 
 		do {
+			System.out.print("\nEnter Seat Number " + (i+1) + " : "); 
+			while (!sc.hasNextInt()) {      
+                System.out.println("Invalid input! Please enter NUMBERS ONLY!");
+                System.out.print("\nEnter Seat Number " + (i+1) + " : "); 
+                sc.next();  
+            }
+			seatNumber = sc.nextInt();
 			if (seatNumber < 101 || seatNumber > 330) {
 				System.out.println("Selected seat out of class seat range. Please select again.");
 				System.out.print("\nEnter Seat Number " + (i+1) + " : "); // input seat number

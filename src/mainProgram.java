@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class mainProgram {
     public static void main(String[] args) {
 
-    //// --MOVIES MODULE--////
+    ////--MOVIES MODULE--////
         Movie movie = new Movie();
         Movie movies[] = {
                 new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+",2),
@@ -31,9 +31,9 @@ public class mainProgram {
         movie.movieTableHeader();
         System.out.printf("|%-3d", movieChose);
         movies[movieChose - 1].printMovieDetails();
-    //// --------------------////
+    ////--------------------////
 
-    //// --TICKETING MODULE--////
+    ////--TICKETING MODULE--////
         Customer customers = new Customer();
         int totalQuantity,
             adultQuantity,
@@ -72,13 +72,34 @@ public class mainProgram {
         Customer adultTickets = new Adult(adultQuantity, childQuantity, studentQuantity);
         Customer childTickets = new Children(adultQuantity, childQuantity, studentQuantity);
         Customer studentTickets = new Student(adultQuantity, childQuantity, studentQuantity);
+    ////--------------------////
 
-        // to check the display value whether works or not.
-        // //PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//PLACEHOLDER
-        System.out.println(adultTickets.toString());
-        System.out.println(childTickets.toString());
-        System.out.println(studentTickets.toString());
-        // PLACEHOLDER//PLACEHOLDER//PLACEHOLDER//delete later//
+    ////--SEAT SELECTION MODULE--////    
+        // Create theatre objects
+        Theatre[] halls = {
+            new Theatre(1),
+            new Theatre(2),
+            new Theatre(3),
+            new Theatre(4),
+            new Theatre(5),
+        };
+
+        // Display seat diagram (based on hall number)
+        int hallNumber = movies[movieChose - 1].movieHallNumber;
+        Theatre theatre = halls[hallNumber - 1];
+        theatre.displaySeats(hallNumber);
+
+        // Select seats for each customer
+        int seatNumber, validatedSeatNumber;
+        int totalCustomer = adultQuantity + childQuantity + studentQuantity;
+        for (int i=0; i < totalCustomer; i++ ) {
+            seatNumber = validatedSeatNumber= theatre.inputValidation(i); // validate seat number input
+            theatre.removeSeat(validatedSeatNumber); // remove seat number (mark as occupied)
+            theatre.takenSeats.add(new Seat(seatNumber,hallNumber)); // store seat info in takenSeats[]
+        }
+
+        // Daniel, you can access the takenSeats ArrayList and print the seat numbers out accordingly👍
+        // Kindly refer to here https://www.freecodecamp.org/news/java-array-methods-how-to-print-an-array-in-java/
     //// --------------------////
     }
 }
