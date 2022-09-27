@@ -21,6 +21,10 @@ public class Movie {
         this.movieHallNumber = movieHallNumber;
     }
 
+    public String getMovieName() {
+        return movieName;
+    }
+
     public void printMovieDetails() {
         System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|%-18s|\n", movieName, movieLang, movieGenre, movieTime,
                 moviePGRating, movieHallNumber);

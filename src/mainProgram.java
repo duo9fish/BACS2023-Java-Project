@@ -138,11 +138,16 @@ public class mainProgram {
         pay.setPaymentType();
         System.out.print("\n\n***Payment complete****");
         pay.pressEnterToProceed();
-        // Daniel, you can access the takenSeats ArrayList and print the seat numbers
-        // out accordingly👍
-        // Kindly refer to here
-        // https://www.freecodecamp.org/news/java-array-methods-how-to-print-an-array-in-java/
-        //// --------------------////
+
+        // Ticket Printing
+        Ticket tic = new Ticket();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        printLine();
+        System.out.println(adultQuantity + " Adult Tickets, " + childQuantity + " Children Tickets, " + studentQuantity
+                + " Student Tickets");
+        printLine();
+        tic.printTicket(adultQuantity, aduPrice);
     }
 
     public static void printLine() {
