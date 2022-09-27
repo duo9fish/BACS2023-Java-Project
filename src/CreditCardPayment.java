@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class CreditCardPayment extends Payment {
-    private String cardId, expireDate, cardNo;
+    protected String cardId, expireDate, cardNo;
 
     public CreditCardPayment() {
     }
@@ -35,11 +35,6 @@ public class CreditCardPayment extends Payment {
         this.cardId = cardId;
         this.expireDate = expireDate;
         this.cardNo = cardNo;
-    }
-
-    public void paymentDetail() {
-        Payment p = new Payment();
-        System.out.println("Total Paid(RM): " + p.getAmount() + " by card " + this.cardNo + " of " + this.cardId);
     }
 
     public String validateCardNo(String l) {

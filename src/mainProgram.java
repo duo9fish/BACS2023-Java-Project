@@ -130,11 +130,14 @@ public class mainProgram {
         System.out.print("\033[H\033[2J");
         System.out.flush();
         printLine();
+        System.out.println("|Total Payable(RM): " + pay.getAmount() + "\t\t\t\t\t\t\t\t|");
         System.out.println("|Select Your Payment Method\t\t\t\t\t\t\t\t|");
         printLine();
         System.out.println("|1. Cash Payment\t\t\t\t\t\t\t\t\t| \n|2. Credit/Debit Card Payment\t\t\t\t\t\t\t\t|");
         printLine();
         pay.setPaymentType();
+        System.out.print("\n\n***Payment complete****");
+        pay.pressEnterToProceed();
         // Daniel, you can access the takenSeats ArrayList and print the seat numbers
         // out accordingly👍
         // Kindly refer to here

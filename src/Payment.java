@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Payment {
-    private double amount;
+    protected double amount;
 
     public Payment() {
     }
@@ -70,8 +70,14 @@ public class Payment {
                 cardNo = sc.next();
                 ccp.validateCardNo(cardNo);
                 ccp.setCardNo(cardNo);
-                ccp.paymentDetail();
+                paymentDetail();
                 break;
         }
+    }
+
+    public void paymentDetail() {
+        CreditCardPayment cp = new CreditCardPayment();
+        System.out.println(
+                "Total Paid(RM): " + getAmount() + " by card");
     }
 }
