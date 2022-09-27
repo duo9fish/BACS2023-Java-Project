@@ -98,9 +98,12 @@ public class mainProgram {
         for (int i = 0; i < totalCustomer; i++) {
             seatNumber = theatre.inputValidation(i); // validate seat number input
             theatre.displaySeats(hallNumber);
-            theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // store seat info in takenSeats[]
             theatre.removeSeat(seatNumber); // remove seat number (mark as occupied)
+            theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // store seat info in takenSeats[]
+            System.out.println(theatre.takenSeats.get(i));
         }
+
+
         //// --------------------////
 
         //// --TICKET PRINTING MODULE--////
