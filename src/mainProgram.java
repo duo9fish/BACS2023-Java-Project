@@ -142,7 +142,7 @@ public class mainProgram {
         pay.pressEnterToProceed();
 
         // Ticket Printing
-        Ticket tic = new Ticket();
+        Ticket tic = new Ticket(movies[movieChose - 1].getMovieName());  // added this
         System.out.print("\033[H\033[2J");
         System.out.flush();
         printLine();

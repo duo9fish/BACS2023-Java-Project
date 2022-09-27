@@ -2,7 +2,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Ticket extends Movie {
+public class Ticket {  // remove extend 
     private String movieName;
 
     public Ticket(String movieName) {
@@ -12,7 +12,7 @@ public class Ticket extends Movie {
     public Ticket() {
     }
 
-    public void printTicket(int a, double b) {
+    public void printTicket(int adultQty, double adultPrice) {
         SimpleDateFormat formattor = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         Theatre theatre = new Theatre();
