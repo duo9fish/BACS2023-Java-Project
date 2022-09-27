@@ -88,7 +88,7 @@ public class mainProgram {
         };
 
         // Display seat diagram (based on hall number)
-        int hallNumber = movies[movieChose - 1].movieHallNumber;
+        int hallNumber = movies[movieChose - 1].getMovieHallNumber();
         Theatre theatre = halls[hallNumber - 1];
         theatre.displaySeats(hallNumber);
 
@@ -96,11 +96,11 @@ public class mainProgram {
         int seatNumber;
         int totalCustomer = adultQuantity + childQuantity + studentQuantity;
         for (int i = 0; i < totalCustomer; i++) {
-            seatNumber = theatre.inputValidation(i); // validate seat number input
-            theatre.displaySeats(hallNumber);
+            seatNumber = theatre.inputValidation(i); // get and validate seat number input
             theatre.removeSeat(seatNumber); // remove seat number (mark as occupied)
-            theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // store seat info in takenSeats[]
-            System.out.println(theatre.takenSeats.get(i));
+            theatre.displaySeats(hallNumber);
+            theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // apppend taken seat info in takenSeats[]
+            System.out.println((theatre.takenSeats.get(i)).getSeatNumber());
         }
 
 
@@ -146,14 +146,14 @@ public class mainProgram {
         pay.pressEnterToProceed();
 
         // Ticket Printing
-        Ticket tic = new Ticket(movies[movieChose - 1].getMovieName());  // added this
+        Ticket tic = new Ticket();  // create new ticket with movie name
         System.out.print("\033[H\033[2J");
         System.out.flush();
         printLine();
         System.out.println(adultQuantity + " Adult Tickets, " + childQuantity + " Children Tickets, " + studentQuantity
                 + " Student Tickets");
         printLine();
-        tic.printTicket(adultQuantity, aduPrice);
+        tic.printTicket(totalCustomer, hallNumber, theatre, movies[movieChose - 1].getMovieName());
     }
 
     public static void printLine() {

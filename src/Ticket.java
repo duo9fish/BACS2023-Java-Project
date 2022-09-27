@@ -3,26 +3,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Ticket {  // remove extend 
-    private String movieName;
-
-    public Ticket(String movieName) {
-        this.movieName = movieName;
-    }
-
     public Ticket() {
     }
 
-    public void printTicket(int adultQty, double adultPrice) {
+    public void printTicket(int totalCustomer, int hallNumber, Theatre theatre, String movieName) {
         SimpleDateFormat formattor = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
-        Theatre theatre = new Theatre();
-        for (int i = 0; i < 5; i++) {
-            System.out.println("=================================================\n");
-            System.out.print("Seat: " + theatre.takenSeats.get(i));
-            System.out.print("Movie: " + movieName);
-            System.out.print("Price: RM " + adultPrice);
-            System.out.print(formattor.format(date));
+        for (int i = 0; i < totalCustomer; i++) {
+            System.out.println("=================================================");
+            System.out.println("TICKET");
+            System.out.println("");
+            System.out.println("Hall: " + hallNumber);
+            System.out.println("Seat: " + (theatre.takenSeats.get(i)).getSeatNumber());
+            System.out.println("Movie: " + movieName);
+            // System.out.print("Price: RM " + adultPrice); // only this left
+            System.out.println(formattor.format(date));
             System.out.println("=================================================\n");
         }
     }
 }
+
