@@ -93,11 +93,11 @@ public class mainProgram {
         theatre.displaySeats(hallNumber);
 
         // Select seats for each customer
-        int seatNumber, validatedSeatNumber;
+        int seatNumber;
         int totalCustomer = adultQuantity + childQuantity + studentQuantity;
         for (int i = 0; i < totalCustomer; i++) {
-            seatNumber = validatedSeatNumber = theatre.inputValidation(i); // validate seat number input
-            theatre.removeSeat(validatedSeatNumber); // remove seat number (mark as occupied)
+            seatNumber = theatre.inputValidation(i); // validate seat number input
+            theatre.removeSeat(seatNumber); // remove seat number (mark as occupied)
             theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // store seat info in takenSeats[]
         }
         //// --------------------////
@@ -108,9 +108,11 @@ public class mainProgram {
         Children chi = new Children();
         Student stu = new Student();
         Payment pay = new Payment();
+
         double aduPrice = adu.calPrice() * adultQuantity;
         double chiPrice = chi.calPrice() * childQuantity;
         double stuPrice = stu.calPrice() * studentQuantity;
+
         pay.setAmount(aduPrice + chiPrice + stuPrice);
         System.out.println("\n");
         System.out.println("Ticket Payment:");
