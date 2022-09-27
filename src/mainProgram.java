@@ -100,7 +100,6 @@ public class mainProgram {
             theatre.displaySeats(hallNumber);
             theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // store seat info in takenSeats[]
             theatre.removeSeat(seatNumber); // remove seat number (mark as occupied)
-            
         }
         //// --------------------////
 

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Theatre {
 	public int hallNumber;
-	public ArrayList<Seat> takenSeats = new ArrayList<Seat>();; // ArrayList (resizable arrays, append)
+	public ArrayList<Seat> takenSeats = new ArrayList<Seat>(); // ArrayList (resizable arrays, append)
 	private int[] availableSeats = { // display for seat selection (3 arrays encapped inside availableSeats array)
 			// ========= movie screen =========
 			101, 102, 103, 104, 105, 106, 107, 108, 109, 110,
@@ -26,37 +26,18 @@ public class Theatre {
 	public void displaySeats(int hallNumber) {
 		// display movie screen
 		System.out.println("");
-		System.out.println(
-				"████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
+		System.out.println("████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
 
 		System.out.println("████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Theatre Hall " + hallNumber + " ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
-
-		System.out.println(
-				"████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
-		System.out.println(
-				"████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Movie Screen ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
-		System.out.println(
-				"████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
-
-		System.out.println(
-				"████████                                                                                 ████████");
-		System.out.println(
-				"████████╔═══════════════════════════════════════════════════════════════════════════════╗████████");
+		System.out.println("████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
+		System.out.println("████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Movie Screen ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
+		System.out.println("████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████");
+		System.out.println("████████                                                                                 ████████");
+		System.out.println("████████╔═══════════════════════════════════════════════════════════════════════════════╗████████");
 
 		// display seats
 		for (int i = 0; i < availableSeats.length; i++) {
-
-			if (i == 0 || i == 10 || i == 20 || i == 30 || i == 40 || i == 50 || i == 60 || i == 70 || i == 80) { // spaces
-																													// out
-																													// the
-																													// 1st,
-																													// 11th
-																													// and
-																													// 21st
-																													// column
-																													// of
-																													// every
-																													// class
+			if (i == 0 || i == 10 || i == 20 || i == 30 || i == 40 || i == 50 || i == 60 || i == 70 || i == 80) { // spaces out the 1st, 11th and 21st column of every row
 				System.out.printf("%8s", "████████"); // spaceout
 			}
 
@@ -65,19 +46,10 @@ public class Theatre {
 
 			if (i == 89) { // formatting. When in the last seat
 				System.out.printf("%8s", "║████████"); // spaceout
-				System.out.println(
-						"\n████████╚═══════════════════════════════════════════════════════════════════════════════╝████████");
-			} else if (i == 9 || i == 19 || i == 29 || i == 39 || i == 49 || i == 59 || i == 69 || i == 79) { // formatting.
-																												// Dividers
-																												// at
-																												// the
-																												// end
-																												// of
-																												// each
-																												// row
+				System.out.println("\n████████╚═══════════════════════════════════════════════════════════════════════════════╝████████");
+			} else if (i == 9 || i == 19 || i == 29 || i == 39 || i == 49 || i == 59 || i == 69 || i == 79) { // formatting. Dividers at the end of each row
 				System.out.printf("%8s", "║████████"); // spaceout
-				System.out.println(
-						"\n████████╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬████████");
+				System.out.println("\n████████╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬═══════╬████████");
 			}
 		}
 	}
@@ -90,7 +62,7 @@ public class Theatre {
 		do {
 			System.out.print("\nEnter Seat Number " + (i + 1) + " : ");
 			while (!sc.hasNextInt()) {
-				System.out.println("Invalid input! Please enter NUMBERS ONLY!");
+				System.out.println("Invalid input! Please enter numbers only.");
 				System.out.print("\nEnter Seat Number " + (i + 1) + " : ");
 				sc.next();
 			}
