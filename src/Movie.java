@@ -24,11 +24,10 @@ public class Movie {
     public void printMovieDetails() {
         System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|%-18s|\n", movieName, movieLang, movieGenre, movieTime,
                 moviePGRating, movieHallNumber);
-        System.out.println("----------------------------------------------------------------------------------------|");
     }
 
     public void movieTableHeader() {
-        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------");
         System.out.printf("|%-3s|%-20s|%-10s|%-10s|%-10s|%-10s|%18s|\n",
                 "No.", "Movie Name", "Language", "Genre", "Show Time", "PG Rating", "Movie Hall Number");
         System.out.println("|---------------------------------------------------------------------------------------|");

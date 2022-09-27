@@ -22,6 +22,7 @@ public class mainProgram {
             System.out.printf("|%-3d", i + 1);
             movies[i].printMovieDetails();
         }
+        printLine();
 
         // Input movie Number
         int movieChose = movie.inputValidation(movies);
@@ -31,6 +32,7 @@ public class mainProgram {
         movie.movieTableHeader();
         System.out.printf("|%-3d", movieChose);
         movies[movieChose - 1].printMovieDetails();
+        printLine();
     ////--------------------////
 
     ////--TICKETING MODULE--////
@@ -101,5 +103,9 @@ public class mainProgram {
         // Daniel, you can access the takenSeats ArrayList and print the seat numbers out accordingly👍
         // Kindly refer to here https://www.freecodecamp.org/news/java-array-methods-how-to-print-an-array-in-java/
     //// --------------------////
+    }
+
+    public static void printLine() {
+        System.out.println("-----------------------------------------------------------------------------------------");
     }
 }
