@@ -7,8 +7,8 @@ public class Student extends Customer {
     public Student() {
     }
 
-    public Student(int adultQauntity, int childQuantity, int studentQuantity) {
-        super(adultQauntity, childQuantity, studentQuantity);
+    public Student(int adultQuantity, int childQuantity, int studentQuantity) {
+        super(adultQuantity, childQuantity, studentQuantity);
 
     }
 

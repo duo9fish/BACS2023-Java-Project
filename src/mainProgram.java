@@ -102,6 +102,14 @@ public class mainProgram {
         }
 
         // Displaying Bill for Payment
+        Adult adu = new Adult();
+        Children chi = new Children();
+        Student stu = new Student();
+        Payment pay = new Payment();
+        double aduPrice = adu.calPrice() * adultQuantity;
+        double chiPrice = chi.calPrice() * childQuantity;
+        double stuPrice = stu.calPrice() * studentQuantity;
+        pay.setAmount(aduPrice + chiPrice + stuPrice);
         System.out.println("\n");
         System.out.println("Ticket Payment:");
         printLine();
@@ -111,9 +119,20 @@ public class mainProgram {
         System.out.print("\nChild\t\t|" + childQuantity + "\t\t\t|" + childTickets + "\t\t\t|");
         System.out.print("\nStudent\t\t|" + studentQuantity + "\t\t\t|" + studentTickets + "\t\t\t|\n");
         printLine();
-        System.out.print("Total(RM) : \t\t\t\t\t\t\t");
-        System.out.printf("%40s", totalPayable());
+        System.out.println("Total(RM) : \t" + pay.getAmount());
+        printLine();
+        // Press Enter To Proceed to Payment
+        pay.pressEnterToProceed();
 
+        // Clear screen for payment
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        printLine();
+        System.out.println("|Select Your Payment Method\t\t\t\t\t\t\t\t|");
+        printLine();
+        System.out.println("|1. Cash Payment\t\t\t\t\t\t\t\t\t| \n|2. Credit/Debit Card Payment\t\t\t\t\t\t\t\t|");
+        printLine();
+        pay.setPaymentType();
         // Daniel, you can access the takenSeats ArrayList and print the seat numbers
         // out accordingly👍
         // Kindly refer to here
@@ -123,9 +142,5 @@ public class mainProgram {
 
     public static void printLine() {
         System.out.println("-----------------------------------------------------------------------------------------");
-    }
-
-    public double totalPayable(double a, double b, double c) {
-        return a + b + c;
     }
 }
