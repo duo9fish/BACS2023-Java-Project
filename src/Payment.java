@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Payment {
     private double amount;
-    private int transactionId;
 
     public Payment() {
     }
@@ -19,15 +18,6 @@ public class Payment {
     // Set the amount for paying, gets value from totalPayable
     public void setAmount(double amount) {
         this.amount = amount;
-    }
-
-    // Gets the transaction ID for every transaction
-    public int getTransactionId() {
-        return transactionId;
-    }
-
-    public void paymentDetail() {
-        System.out.println("Total Payable (RM): " + this.amount);
     }
 
     public void pressEnterToProceed() {
@@ -68,19 +58,19 @@ public class Payment {
                 }
                 break;
             case 2:
-                String name, expireDate, cardNo;
+                String name, cardNo;
+                String expireDate = "1000100010001000";
                 CreditCardPayment ccp = new CreditCardPayment();
-                System.out.print("\nEnter Card Holder Name: ");
-                name = sc.nextLine();
+                System.out.print("Enter Card Holder Name: ");
+                name = sc.next();
                 ccp.setCardId(name);
-                System.out.print("\nEnter Card Expiry Date(MM/YY): ");
-                expireDate = sc.nextLine();
                 ccp.validateExpireDate(expireDate);
                 ccp.setExpireDate(expireDate);
-                System.out.print("\nEnter Card Number: ");
-                cardNo = sc.nextLine();
+                System.out.print("Enter Card Number: ");
+                cardNo = sc.next();
                 ccp.validateCardNo(cardNo);
                 ccp.setCardNo(cardNo);
+                ccp.paymentDetail();
                 break;
         }
     }
