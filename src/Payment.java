@@ -2,14 +2,17 @@ public class Payment {
     private double amount;
     private int transactionId;
 
+    // Get amount to print in the bill
     public double getAmount() {
         return amount;
     }
 
+    // Set the amount for paying, gets value from totalPayable
     public void setAmount(double amount) {
         this.amount = amount;
     }
 
+    // Gets the transaction ID for every transaction
     public int getTransactionId() {
         return transactionId;
     }
