@@ -97,8 +97,10 @@ public class mainProgram {
         int totalCustomer = adultQuantity + childQuantity + studentQuantity;
         for (int i = 0; i < totalCustomer; i++) {
             seatNumber = theatre.inputValidation(i); // validate seat number input
-            theatre.removeSeat(seatNumber); // remove seat number (mark as occupied)
+            theatre.displaySeats(hallNumber);
             theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // store seat info in takenSeats[]
+            theatre.removeSeat(seatNumber); // remove seat number (mark as occupied)
+            
         }
         //// --------------------////
 

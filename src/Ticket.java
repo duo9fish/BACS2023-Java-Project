@@ -19,8 +19,8 @@ public class Ticket {  // remove extend
         for (int i = 0; i < 5; i++) {
             System.out.println("=================================================\n");
             System.out.print("Seat: " + theatre.takenSeats.get(i));
-            System.out.print("Movie: " + getMovieName());
-            System.out.print("Price: RM " + b);
+            System.out.print("Movie: " + movieName);
+            System.out.print("Price: RM " + adultPrice);
             System.out.print(formattor.format(date));
             System.out.println("=================================================\n");
         }
