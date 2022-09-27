@@ -54,7 +54,7 @@ public class Payment {
                 }
                 if (cashAmount >= amount) {
                     System.out.println("Payment Successful. Total paid is RM " + cashAmount + ".");
-                    System.out.print("\nBalance(RM): " + Math.round(cashAmount - amount) * 100 / 100.0);
+                    System.out.print("\nBalance(RM): " + (cashAmount - amount));
                 }
                 break;
             case 2:
