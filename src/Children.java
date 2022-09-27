@@ -13,7 +13,7 @@ public class Children extends Customer {
 
     public int input(int totalQty) {
         int qty;
-        
+
         do {
             Scanner sc = new Scanner(System.in);
             System.out.print("\nEnter quantity of children tickets needed: ");
@@ -26,7 +26,7 @@ public class Children extends Customer {
             if (super.inputValidation(qty, totalQty)) {
                 break;
             }
-            
+
         } while (qty < 0 || qty > totalQty);
         return qty;
     }
@@ -43,6 +43,6 @@ public class Children extends Customer {
 
     @Override
     public String toString() {
-        return "\nChild Price : " + calPrice() + "\nTotal Child Price : " + calTotalPrice();
+        return calPrice() + "\t\t\t|" + calTotalPrice();
     }
 }

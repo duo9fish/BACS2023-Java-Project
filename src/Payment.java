@@ -21,4 +21,9 @@ public class Payment {
     public void paymentDetail() {
         System.out.println("Total Payable (RM): " + this.amount);
     }
+
+    public double totalPayable(double a, double b, double c) {
+        return a + b + c;
+    }
+
 }
