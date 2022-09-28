@@ -167,19 +167,23 @@ public class mainProgram {
 
     public static Boolean askCustomer() {
         Scanner sc = new Scanner(System.in);
-        Boolean cont = true;
+        boolean cont = true;
+        char tf = 'y';
         try {
+            
             System.out.println("Any more customers? (y / n) : ");
-            char tf = sc.next().charAt(0); // get character input (y / n)
-
+            tf = sc.next().charAt(0); // get character input (y / n)
             switch(tf) {
-                case 'y': cont = true; 
+                case 'y': cont = true;
+                break; 
                 case 'n': cont = false;
+                break;
             }
 
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please try again.");
         }
+        
         return cont;
     }
 }
