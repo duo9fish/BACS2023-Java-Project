@@ -20,9 +20,6 @@ public class Theatre {
 		this.hallNumber = hallNumber;
 	}
 
-	public Theatre() {
-	}
-
 	public void displaySeats(int hallNumber) {
 		// display movie screen
 		System.out.println("");
