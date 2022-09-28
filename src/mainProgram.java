@@ -40,9 +40,9 @@ public class mainProgram {
             //// --TICKETING MODULE--////
             Customer customers = new Customer();
             int totalQuantity,
-                adultQuantity,
-                childQuantity,
-                studentQuantity;
+                    adultQuantity,
+                    childQuantity,
+                    studentQuantity;
             // Input Total Quantity of Ticket
             do {
                 totalQuantity = customers.inputValidation(); // input and validation
@@ -104,7 +104,6 @@ public class mainProgram {
                 theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // apppend taken seat info in takenSeats[]
             }
 
-
             //// --------------------////
 
             //// --TICKET PRINTING MODULE--////
@@ -147,18 +146,19 @@ public class mainProgram {
             pay.pressEnterToProceed();
 
             // Ticket Printing
-            Ticket tic = new Ticket();  // create new ticket with movie name
+            Ticket tic = new Ticket(); // create new ticket with movie name
             System.out.print("\033[H\033[2J");
             System.out.flush();
             printLine();
-            System.out.println(adultQuantity + " Adult Tickets, " + childQuantity + " Children Tickets, " + studentQuantity
-                    + " Student Tickets");
+            System.out.println(
+                    adultQuantity + " Adult Ticket(s), " + childQuantity + " Children Ticket(s), " + studentQuantity
+                            + " Student Ticket(s)");
             printLine();
-            tic.printTicket(totalCustomer, hallNumber, theatre, movies[movieChose - 1].getMovieName());
-
+            tic.printTicket(adultQuantity, childQuantity, studentQuantity, hallNumber, theatre,
+                    movies[movieChose - 1].getMovieName(), adu.calPrice(), chi.calPrice(), stu.calPrice());
             // Check if anymore customer
             cont = askCustomer();
-        } while(cont);
+        } while (cont);
     }
 
     public static void printLine() {
@@ -170,20 +170,22 @@ public class mainProgram {
         boolean cont = true;
         char tf = 'y';
         try {
-            
+
             System.out.println("Any more customers? (y / n) : ");
             tf = sc.next().charAt(0); // get character input (y / n)
-            switch(tf) {
-                case 'y': cont = true;
-                break; 
-                case 'n': cont = false;
-                break;
+            switch (tf) {
+                case 'y':
+                    cont = true;
+                    break;
+                case 'n':
+                    cont = false;
+                    break;
             }
 
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please try again.");
         }
-        
+
         return cont;
     }
 }

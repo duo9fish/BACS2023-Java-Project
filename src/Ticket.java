@@ -2,24 +2,50 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Ticket {  // remove extend 
+public class Ticket { // remove extend
     public Ticket() {
     }
 
-    public void printTicket(int totalCustomer, int hallNumber, Theatre theatre, String movieName) {
+    public void printTicket(int adultQuantity, int childQuantity, int studentQuantity,
+            int hallNumber, Theatre theatre, String movieName, double aduPrice, double chiPrice, double stuPrice) {
         SimpleDateFormat formattor = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
-        for (int i = 0; i < totalCustomer; i++) {
+        int i = 0;
+        for (int j = 0; j < adultQuantity; j++) {
             System.out.println("=================================================");
-            System.out.println("TICKET");
+            System.out.println("TICKET \t\t\tCategory: Adult");
             System.out.println("");
             System.out.println("Hall: " + hallNumber);
             System.out.println("Seat: " + (theatre.takenSeats.get(i)).getSeatNumber());
             System.out.println("Movie: " + movieName);
-            // System.out.print("Price: RM " + adultPrice); // only this left
+            System.out.print("Price: RM " + aduPrice + "\n");
             System.out.println(formattor.format(date));
+            i++;
+            System.out.println("=================================================\n");
+        }
+        for (int k = 0; k < childQuantity; k++) {
+            System.out.println("=================================================");
+            System.out.println("TICKET \t\t\tCategory: Child");
+            System.out.println("");
+            System.out.println("Hall: " + hallNumber);
+            System.out.println("Seat: " + (theatre.takenSeats.get(i)).getSeatNumber());
+            System.out.println("Movie: " + movieName);
+            System.out.print("Price: RM " + chiPrice + "\n");
+            System.out.println(formattor.format(date));
+            i++;
+            System.out.println("=================================================\n");
+        }
+        for (int l = 0; l < studentQuantity; l++) {
+            System.out.println("=================================================");
+            System.out.println("TICKET \t\t\tCategory: Student");
+            System.out.println("");
+            System.out.println("Hall: " + hallNumber);
+            System.out.println("Seat: " + (theatre.takenSeats.get(i)).getSeatNumber());
+            System.out.println("Movie: " + movieName);
+            System.out.print("Price: RM " + stuPrice + "\n");
+            System.out.println(formattor.format(date));
+            i++;
             System.out.println("=================================================\n");
         }
     }
 }
-
