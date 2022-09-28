@@ -30,13 +30,6 @@ public class CreditCardPayment extends Payment {
         return cardNo;
     }
 
-    CreditCardPayment(double amount, String cardId, String expireDate, String cardNo) {
-        super(amount);
-        this.cardId = cardId;
-        this.expireDate = expireDate;
-        this.cardNo = cardNo;
-    }
-
     public String validateCardNo(String l) {
         Scanner sc = new Scanner(System.in);
         while (!l.matches("[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]")) {

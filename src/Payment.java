@@ -28,7 +28,7 @@ public class Payment {
         }
     }
 
-    // method to select payment method
+    // To select payment method
     public void setPaymentType() {
         int paymentMethod;
         Scanner sc = new Scanner(System.in);
