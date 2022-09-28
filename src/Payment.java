@@ -54,8 +54,8 @@ public class Payment {
                     cashAmount += tempCash;
                 }
                 if (cashAmount >= amount) {
-                    System.out.println("Payment Successful. Total paid is RM " + cashAmount + ".");
-                    System.out.print("\nBalance(RM): " + (cashAmount - amount));
+                    System.out.println("Payment Successful. Total paid is RM " + String.format("%.2f", cashAmount) + ".");
+                    System.out.print("\nBalance(RM): " + String.format("%.2f", (cashAmount - amount)));
                 }
                 break;
             case 2:
@@ -80,6 +80,6 @@ public class Payment {
     public void paymentDetail() {
         CreditCardPayment cp = new CreditCardPayment();
         System.out.println(
-                "Total Paid(RM): " + getAmount() + " by card");
+                "Total Paid(RM): " + String.format("%.2f", getAmount()) + " by card");
     }
 }

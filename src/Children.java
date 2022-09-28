@@ -50,6 +50,6 @@ public class Children extends Customer {
     // display the unit price as well as total price in each category by using toString method
     @Override
     public String toString() {
-        return calPrice() + "\t\t\t|" + calTotalPrice();
+        return String.format("%.2f", calPrice()) + "\t\t\t|" + String.format("%.2f", calTotalPrice());
     }
 }

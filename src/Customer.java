@@ -94,7 +94,7 @@ public abstract class Customer { // abstract applied
     }
     
     // validate whether user want to continue buying or not with condition y or n
-    public static Boolean askCustomer() {
+    public Boolean askCustomer() {
         Scanner sc = new Scanner(System.in);
         boolean cont = true;
         char tf = 'Y';
@@ -103,6 +103,7 @@ public abstract class Customer { // abstract applied
             System.out.println("Any more customers? (y / n) : ");
             tf = sc.next().charAt(0); // get character input (y / n)
             tf = Character.toUpperCase(tf);
+
             switch (tf) {
                 case 'Y':
                     cont = true;
@@ -110,11 +111,15 @@ public abstract class Customer { // abstract applied
                 case 'N':
                     cont = false;
                     break;
+                default: 
+                System.out.println("Invalid");
+
             }
 
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please try again.");
         }
+        
 
         return cont;
     }
