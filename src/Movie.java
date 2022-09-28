@@ -24,6 +24,10 @@ public class Movie {
     public String getMovieName() {
         return movieName;
     }
+    
+    public int getMovieHallNumber() {
+        return movieHallNumber;
+    }
 
     public void printMovieDetails() {
         System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|%-18s|\n", movieName, movieLang, movieGenre, movieTime,
@@ -56,4 +60,5 @@ public class Movie {
         } while (movieNum < 1 || movieNum > movies.length);
         return movieNum;
     }
+
 }
