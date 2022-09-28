@@ -30,20 +30,28 @@ public class Payment {
 
     // To select payment method
     public void setPaymentType() {
-        int paymentMethod;
+        String paymentMethod;
         Scanner sc = new Scanner(System.in);
-        do {
-            System.out.print("\nSelect your Payment Method (1 / 2): ");
-            paymentMethod = sc.nextInt();
-            if (paymentMethod > 2 || paymentMethod < 1) {
-                System.out.print("\nInvalid. Please select 1 or 2 (1 / 2): ");
-                paymentMethod = sc.nextInt();
+        int result;
+        while (true) {
+            try {
+                System.out.print("\nSelect Your Payment Method (1 / 2): ");
+                paymentMethod = sc.next();
+                result = Integer.parseInt(paymentMethod);
+            } catch (Exception e) {
+                System.out.println("Invalid input, please try again.");
+                continue;
             }
 
-        } while (paymentMethod < 1 || paymentMethod > 2);
+            if (result != 1 && result != 2) {
+                System.out.print("\nInvalid input! Please select (1 / 2):");
+            } else {
+                break;
+            }
+        }
         // Payment selection and validation
         switch (paymentMethod) {
-            case 1:
+            case "1":
                 double cashAmount, tempCash;
                 System.out.print("\nEnter Cash To Pay(RM): ");
                 cashAmount = sc.nextDouble();
@@ -54,11 +62,12 @@ public class Payment {
                     cashAmount += tempCash;
                 }
                 if (cashAmount >= amount) {
-                    System.out.println("Payment Successful. Total paid is RM " + String.format("%.2f", cashAmount) + ".");
+                    System.out
+                            .println("Payment Successful. Total paid is RM " + String.format("%.2f", cashAmount) + ".");
                     System.out.print("\nBalance(RM): " + String.format("%.2f", (cashAmount - amount)));
                 }
                 break;
-            case 2:
+            case "2":
                 String name, cardNo;
                 String expireDate = "1000100010001000";
                 CreditCardPayment ccp = new CreditCardPayment();
