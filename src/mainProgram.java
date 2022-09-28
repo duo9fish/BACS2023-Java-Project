@@ -3,8 +3,18 @@ import java.util.Scanner;
 public class mainProgram {
     public static void main(String[] args) {
         Boolean cont = true;
+
+        // Create theatre objects (under 3. SEAT SELECTION MODULE) - theatre halls only need to be created once (else clears takenSeats after each loop)
+        Theatre[] halls = {
+            new Theatre(1),
+            new Theatre(2),
+            new Theatre(3),
+            new Theatre(4),
+            new Theatre(5),
+        };
+    
         do {
-            //// --MOVIES MODULE--////
+            //// --1. MOVIES MODULE--////
             Movie movie = new Movie();
             Movie movies[] = {
                     new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+", 2),
@@ -36,7 +46,7 @@ public class mainProgram {
             printLine();
             //// --------------------////
 
-            //// --TICKETING MODULE--////
+            //// --2. TICKETING MODULE--////
             // create three object to call methods
             Adult adult = new Adult();  
             Children children = new Children();
@@ -83,15 +93,7 @@ public class mainProgram {
             Customer studentTickets = new Student(adultQuantity, childQuantity, studentQuantity);
             //// --------------------////
 
-            //// --SEAT SELECTION MODULE--////
-            // Create theatre objects
-            Theatre[] halls = {
-                    new Theatre(1),
-                    new Theatre(2),
-                    new Theatre(3),
-                    new Theatre(4),
-                    new Theatre(5),
-            };
+            //// -- 3. SEAT SELECTION MODULE--////
 
             // Display seat diagram (based on hall number)
             int hallNumber = movies[movieChose - 1].getMovieHallNumber();
@@ -101,11 +103,12 @@ public class mainProgram {
             // Select seats for each customer
             int seatNumber;
             int totalCustomer = adultQuantity + childQuantity + studentQuantity;
+
             for (int i = 0; i < totalCustomer; i++) {
                 seatNumber = theatre.inputValidation(i); // get and validate seat number input
                 theatre.removeSeat(seatNumber); // remove seat number (mark as occupied)
-                theatre.displaySeats(hallNumber);
                 theatre.takenSeats.add(new Seat(seatNumber, hallNumber)); // apppend taken seat info in takenSeats[]
+                theatre.displaySeats(hallNumber); // display current seat diagram (know which seats taken)
             }
 
             //// --------------------////
@@ -158,38 +161,16 @@ public class mainProgram {
                     adultQuantity + " Adult Ticket(s), " + childQuantity + " Children Ticket(s), " + studentQuantity
                             + " Student Ticket(s)");
             printLine();
-            tic.printTicket(adultQuantity, childQuantity, studentQuantity, hallNumber, theatre,
+            tic.printTicket(adultQuantity, childQuantity, studentQuantity, theatre,
                     movies[movieChose - 1].getMovieName(), adu.calPrice(), chi.calPrice(), stu.calPrice());
             // Check if anymore customer
             cont = adult.askCustomer();  // the method is in Customer table to check condition
         } while (cont);
+
+        System.out.println("\nThank you! Have a great day.");
     }
 
     public static void printLine() {
         System.out.println("-----------------------------------------------------------------------------------------");
     }
-
-    // public static Boolean askCustomer() {
-    //     Scanner sc = new Scanner(System.in);
-    //     boolean cont = true;
-    //     char tf = 'y';
-    //     try {
-
-    //         System.out.println("Any more customers? (y / n) : ");
-    //         tf = sc.next().charAt(0); // get character input (y / n)
-    //         switch (tf) {
-    //             case 'y':
-    //                 cont = true;
-    //                 break;
-    //             case 'n':
-    //                 cont = false;
-    //                 break;
-    //         }
-
-    //     } catch (InputMismatchException e) {
-    //         System.out.println("Invalid input. Please try again.");
-    //     }
-
-    //     return cont;
-    // }
 }
