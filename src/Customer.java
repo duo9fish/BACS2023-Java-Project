@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Customer { // abstract
+public abstract class Customer { // abstract
 
     private int adultQuantity;
     private int childQuantity;
@@ -79,6 +79,8 @@ public class Customer { // abstract
             return true;
         }
     }
+    
+    public abstract double calTotalPrice();
 
     public void ticketsLeft(int qty) {
         System.out.println("\nTotal tickets left: " + qty);

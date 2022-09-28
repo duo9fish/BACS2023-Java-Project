@@ -38,37 +38,42 @@ public class mainProgram {
             //// --------------------////
 
             //// --TICKETING MODULE--////
-            Customer customers = new Customer();
+            // create three object to call methods
+            Adult adult = new Adult();  
+            Children children = new Children();
+            Student student = new Student();
+
             int totalQuantity,
                     adultQuantity,
                     childQuantity,
                     studentQuantity;
             // Input Total Quantity of Ticket
             do {
-                totalQuantity = customers.inputValidation(); // input and validation
+                totalQuantity = adult.inputValidation(); // input and validation
 
                 // Input Quantity of Adult tickets
-                Adult adult = new Adult();
                 adultQuantity = adult.input(totalQuantity);
                 totalQuantity -= adultQuantity;
 
-                customers.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
-
-                // Input Quantity of Children tickets
-                Children children = new Children();
-                childQuantity = children.input(totalQuantity);
-                totalQuantity -= childQuantity;
-
-                customers.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
+                adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
                 // Input Quantity of Student tickets
-                Student student = new Student();
                 studentQuantity = student.input(totalQuantity);
                 totalQuantity -= studentQuantity;
 
+                adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
+
+                // Input Quantity of Children tickets
+                if (movies[movieChose-1].getMoviePGRating() != "18+") {
+                    childQuantity = children.input(totalQuantity);
+                    totalQuantity -= childQuantity;
+                }
+                else { 
+                    childQuantity = 0;
+                }
+
                 if (totalQuantity != 0) {
-                    System.out.println(
-                            "Total ticket count does not match with total quantity of tickets needed, Please try again!");
+                    System.out.println("Total ticket count does not match with total quantity of tickets needed, Please try again!");
                 }
             } while (totalQuantity != 0);
 
@@ -123,9 +128,9 @@ public class mainProgram {
             printLine();
             System.out.println("Category\t|Ticket Quantity\t|Pricing(RM Per Unit)\t|Total Pricing(RM)\t|");
             printLine();
-            System.out.print("Adult\t\t|" + adultQuantity + "\t\t\t|" + adultTickets + "\t\t\t|");
-            System.out.print("\nChild\t\t|" + childQuantity + "\t\t\t|" + childTickets + "\t\t\t|");
-            System.out.print("\nStudent\t\t|" + studentQuantity + "\t\t\t|" + studentTickets + "\t\t\t|\n");
+            System.out.print("Adult\t\t|" + adultQuantity + "\t\t\t|" + adultTickets.toString() + "\t\t\t|");
+            System.out.print("\nChild\t\t|" + childQuantity + "\t\t\t|" + childTickets.toString() + "\t\t\t|");
+            System.out.print("\nStudent\t\t|" + studentQuantity + "\t\t\t|" + studentTickets.toString() + "\t\t\t|\n");
             printLine();
             System.out.println("Total(RM) : \t" + pay.getAmount());
             printLine();

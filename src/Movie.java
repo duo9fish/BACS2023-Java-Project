@@ -24,6 +24,14 @@ public class Movie {
     public String getMovieName() {
         return movieName;
     }
+    
+    public int getMovieHallNumber() {
+        return movieHallNumber;
+    }
+
+    public String getMoviePGRating() {
+        return moviePGRating;
+    }
 
     public void printMovieDetails() {
         System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|%-18s|\n", movieName, movieLang, movieGenre, movieTime,
@@ -57,25 +65,4 @@ public class Movie {
         return movieNum;
     }
 
-    //Added getter
-    public String getMovieLang() {
-        return movieLang;
-    }
-
-    public String getMovieGenre() {
-        return movieGenre;
-    }
-
-    public String getMovieTime() {
-        return movieTime;
-    }
-
-    public String getMoviePGRating() {
-        return moviePGRating;
-    }
-
-    public int getMovieHallNumber() {
-        return movieHallNumber;
-    }
-    
 }
