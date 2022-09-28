@@ -1,4 +1,3 @@
-import java.util.InputMismatchException; // char validation
 import java.util.Scanner;
 
 public class mainProgram {
@@ -162,7 +161,7 @@ public class mainProgram {
             tic.printTicket(adultQuantity, childQuantity, studentQuantity, hallNumber, theatre,
                     movies[movieChose - 1].getMovieName(), adu.calPrice(), chi.calPrice(), stu.calPrice());
             // Check if anymore customer
-            cont = askCustomer();
+            cont = adult.askCustomer();  // the method is in Customer table to check condition
         } while (cont);
     }
 
@@ -170,27 +169,27 @@ public class mainProgram {
         System.out.println("-----------------------------------------------------------------------------------------");
     }
 
-    public static Boolean askCustomer() {
-        Scanner sc = new Scanner(System.in);
-        boolean cont = true;
-        char tf = 'y';
-        try {
+    // public static Boolean askCustomer() {
+    //     Scanner sc = new Scanner(System.in);
+    //     boolean cont = true;
+    //     char tf = 'y';
+    //     try {
 
-            System.out.println("Any more customers? (y / n) : ");
-            tf = sc.next().charAt(0); // get character input (y / n)
-            switch (tf) {
-                case 'y':
-                    cont = true;
-                    break;
-                case 'n':
-                    cont = false;
-                    break;
-            }
+    //         System.out.println("Any more customers? (y / n) : ");
+    //         tf = sc.next().charAt(0); // get character input (y / n)
+    //         switch (tf) {
+    //             case 'y':
+    //                 cont = true;
+    //                 break;
+    //             case 'n':
+    //                 cont = false;
+    //                 break;
+    //         }
 
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please try again.");
-        }
+    //     } catch (InputMismatchException e) {
+    //         System.out.println("Invalid input. Please try again.");
+    //     }
 
-        return cont;
-    }
+    //     return cont;
+    // }
 }

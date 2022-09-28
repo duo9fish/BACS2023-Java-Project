@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException; // char validation
 
 public abstract class Customer { // abstract applied
 
@@ -90,5 +91,31 @@ public abstract class Customer { // abstract applied
     // to display the quantity of tickets left
     public void ticketsLeft(int qty) {
         System.out.println("\nTotal tickets left: " + qty);
+    }
+    
+    // validate whether user want to continue buying or not with condition y or n
+    public static Boolean askCustomer() {
+        Scanner sc = new Scanner(System.in);
+        boolean cont = true;
+        char tf = 'Y';
+        try {
+
+            System.out.println("Any more customers? (y / n) : ");
+            tf = sc.next().charAt(0); // get character input (y / n)
+            tf = Character.toUpperCase(tf);
+            switch (tf) {
+                case 'Y':
+                    cont = true;
+                    break;
+                case 'N':
+                    cont = false;
+                    break;
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please try again.");
+        }
+
+        return cont;
     }
 }
