@@ -28,6 +28,7 @@ public class Payment {
         }
     }
 
+    // method to select payment method
     public void setPaymentType() {
         int paymentMethod;
         Scanner sc = new Scanner(System.in);
@@ -40,7 +41,7 @@ public class Payment {
             }
 
         } while (paymentMethod < 1 || paymentMethod > 2);
-
+        // Payment selection and validation
         switch (paymentMethod) {
             case 1:
                 double cashAmount, tempCash;
@@ -75,6 +76,7 @@ public class Payment {
         }
     }
 
+    // Print Card payment details
     public void paymentDetail() {
         CreditCardPayment cp = new CreditCardPayment();
         System.out.println(
