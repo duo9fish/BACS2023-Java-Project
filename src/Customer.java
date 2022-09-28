@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Customer {
+public class Customer { // abstract
 
     private int adultQuantity;
     private int childQuantity;
@@ -43,6 +43,8 @@ public class Customer {
     public double calPrice() {
         return ADULT_PRICE;
     }
+
+    // public abstract void inputValidation();
 
     public int inputValidation() {
         int qty;
