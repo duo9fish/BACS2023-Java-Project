@@ -1,21 +1,27 @@
 import java.util.Scanner;
 
-public abstract class Customer { // abstract
+public abstract class Customer { // abstract applied
 
     private int adultQuantity;
     private int childQuantity;
     private int studentQuantity;
-    private final double ADULT_PRICE = 17.00;
+    private final double ADULT_PRICE = 17.00;  // a fixed price that cannot be change
 
+    // no args constructor
     public Customer() {
     }
 
+    // constructor with three parameters
     public Customer(int adultQauntity, int childQuantity, int studentQuantity) {
         this.adultQuantity = adultQauntity;
         this.childQuantity = childQuantity;
         this.studentQuantity = studentQuantity;
     }
 
+      // no body where it is an abstract method
+      public abstract double calTotalPrice();
+
+    // getter and setter
     public int getAdultQuantity() {
         return adultQuantity;
     }
@@ -40,12 +46,12 @@ public abstract class Customer { // abstract
         this.studentQuantity = studentQuantity;
     }
 
+    // method that calculate every category of price
     public double calPrice() {
         return ADULT_PRICE;
     }
 
-    // public abstract void inputValidation();
-
+    // validation method that use to validate the value of total quantity entered by user
     public int inputValidation() {
         int qty;
         Scanner sc = new Scanner(System.in);
@@ -68,6 +74,7 @@ public abstract class Customer { // abstract
         return qty;
     }
 
+    // validate the boolean type to check whether true or false
     public boolean inputValidation(int qty, int totalQty) {
         if (qty < 0) {
             System.out.println("Invalid input! Please enter POSITIVE NUMBERS ONLY");
@@ -79,9 +86,8 @@ public abstract class Customer { // abstract
             return true;
         }
     }
-    
-    public abstract double calTotalPrice();
 
+    // to display the quantity of tickets left
     public void ticketsLeft(int qty) {
         System.out.println("\nTotal tickets left: " + qty);
     }

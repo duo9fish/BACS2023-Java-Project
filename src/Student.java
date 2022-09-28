@@ -1,17 +1,21 @@
 import java.util.Scanner;
 
+// it is a sub class that the parents class is Customer
 public class Student extends Customer {
     private double studentPrice;
     private final double DISCOUNT = 0.75;
 
+    // no args constructor
     public Student() {
     }
 
+    // constructor with three parameters
     public Student(int adultQuantity, int childQuantity, int studentQuantity) {
         super(adultQuantity, childQuantity, studentQuantity);
 
     }
 
+    // validation method that use to validate input by user
     public int input(int totalQty) {
         int qty;
         do {
@@ -30,16 +34,19 @@ public class Student extends Customer {
         return qty;
     }
 
+    // override the method that found in parent class to calculate student price
     @Override
     public double calPrice() {
         this.studentPrice = super.calPrice() * DISCOUNT;
         return studentPrice;
     }
 
+    // calculate total child price
     public double calTotalPrice() {
         return calPrice() * (double) super.getStudentQuantity();
     }
 
+    // display the unit price as well as total price in each category by using toString method
     @Override
     public String toString() {
         return calPrice() + "\t\t\t|" + calTotalPrice();
