@@ -4,15 +4,16 @@ public class mainProgram {
     public static void main(String[] args) {
         Boolean cont = true;
 
-        // Create theatre objects (under 3. SEAT SELECTION MODULE) - theatre halls only need to be created once (else clears takenSeats after each loop)
+        // Create theatre objects (under 3. SEAT SELECTION MODULE) - theatre halls only
+        // need to be created once (else clears takenSeats after each loop)
         Theatre[] halls = {
-            new Theatre(1),
-            new Theatre(2),
-            new Theatre(3),
-            new Theatre(4),
-            new Theatre(5),
+                new Theatre(1),
+                new Theatre(2),
+                new Theatre(3),
+                new Theatre(4),
+                new Theatre(5),
         };
-    
+
         do {
             //// --1. MOVIES MODULE--////
             Movie movie = new Movie();
