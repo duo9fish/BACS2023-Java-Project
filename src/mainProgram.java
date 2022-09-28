@@ -168,28 +168,4 @@ public class mainProgram {
     public static void printLine() {
         System.out.println("-----------------------------------------------------------------------------------------");
     }
-
-    // public static Boolean askCustomer() {
-    //     Scanner sc = new Scanner(System.in);
-    //     boolean cont = true;
-    //     char tf = 'y';
-    //     try {
-
-    //         System.out.println("Any more customers? (y / n) : ");
-    //         tf = sc.next().charAt(0); // get character input (y / n)
-    //         switch (tf) {
-    //             case 'y':
-    //                 cont = true;
-    //                 break;
-    //             case 'n':
-    //                 cont = false;
-    //                 break;
-    //         }
-
-    //     } catch (InputMismatchException e) {
-    //         System.out.println("Invalid input. Please try again.");
-    //     }
-
-    //     return cont;
-    // }
 }
