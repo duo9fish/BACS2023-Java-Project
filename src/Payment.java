@@ -28,6 +28,7 @@ public class Payment {
         }
     }
 
+    // To select payment method
     public void setPaymentType() {
         int paymentMethod;
         Scanner sc = new Scanner(System.in);
@@ -40,7 +41,7 @@ public class Payment {
             }
 
         } while (paymentMethod < 1 || paymentMethod > 2);
-
+        // Payment selection and validation
         switch (paymentMethod) {
             case 1:
                 double cashAmount, tempCash;
@@ -53,8 +54,8 @@ public class Payment {
                     cashAmount += tempCash;
                 }
                 if (cashAmount >= amount) {
-                    System.out.println("Payment Successful. Total paid is RM " + cashAmount + ".");
-                    System.out.print("\nBalance(RM): " + (cashAmount - amount));
+                    System.out.println("Payment Successful. Total paid is RM " + String.format("%.2f", cashAmount) + ".");
+                    System.out.print("\nBalance(RM): " + String.format("%.2f", (cashAmount - amount)));
                 }
                 break;
             case 2:
@@ -75,9 +76,10 @@ public class Payment {
         }
     }
 
+    // Print Card payment details
     public void paymentDetail() {
         CreditCardPayment cp = new CreditCardPayment();
         System.out.println(
-                "Total Paid(RM): " + getAmount() + " by card");
+                "Total Paid(RM): " + String.format("%.2f", getAmount()) + " by card");
     }
 }

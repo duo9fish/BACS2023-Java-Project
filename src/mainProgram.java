@@ -134,7 +134,7 @@ public class mainProgram {
             System.out.print("\nChild\t\t|" + childQuantity + "\t\t\t|" + childTickets.toString() + "\t\t\t|");
             System.out.print("\nStudent\t\t|" + studentQuantity + "\t\t\t|" + studentTickets.toString() + "\t\t\t|\n");
             printLine();
-            System.out.println("Total(RM) : \t" + pay.getAmount());
+            System.out.println("Total(RM) : \t" + String.format("%.2f", pay.getAmount()));
             printLine();
             // Press Enter To Proceed to Payment
             pay.pressEnterToProceed();
@@ -143,7 +143,7 @@ public class mainProgram {
             System.out.print("\033[H\033[2J");
             System.out.flush();
             printLine();
-            System.out.println("|Total Payable(RM): " + pay.getAmount() + "\t\t\t\t\t\t\t\t|");
+            System.out.println("|Total Payable(RM): " + String.format("%.2f", pay.getAmount()) + "\t\t\t\t\t\t\t\t|");
             System.out.println("|Select Your Payment Method\t\t\t\t\t\t\t\t|");
             printLine();
             System.out.println("|1. Cash Payment\t\t\t\t\t\t\t\t\t| \n|2. Credit/Debit Card Payment\t\t\t\t\t\t\t\t|");
