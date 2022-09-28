@@ -20,9 +20,6 @@ public class Theatre {
 		this.hallNumber = hallNumber;
 	}
 
-	public Theatre() {
-	}
-
 	public void displaySeats(int hallNumber) {
 		// display movie screen
 		System.out.println("");
@@ -59,18 +56,24 @@ public class Theatre {
 		int seatNumber;
 
 		System.out.print("\nEnter Seat Number " + (i + 1) + " : ");
-		seatNumber = sc.nextInt();
 
-		for (int j = 0; j < takenSeats.size(); j++) { // linear search through whole takenSeats array
+		while (!sc.hasNextInt()) { // check if input is integer
+			System.out.println("Invalid input! Please enter an integer.");
+			System.out.print("\nEnter Seat Number " + (i + 1) + " : ");
+			sc.next(); // stop for input
+		}
+		seatNumber = sc.nextInt(); // collect input (integer)
+
+		for (int j = 0; j < takenSeats.size(); j++) { // check if input seat has already been taken (linear search through whole takenSeats array)
 			if (seatNumber == takenSeats.get(j).getSeatNumber()) {
 				System.out.println("Seat has been taken. Please select again.");
-				seatNumber = inputValidation(i);
+				seatNumber = inputValidation(i); // recursion
 			}
 		}
 
-		if (seatNumber < 101 || seatNumber > 190) {
+		if (seatNumber < 101 || seatNumber > 190) { // check if input exceeded range
 			System.out.println("Selected seat out of class seat range. Please select again.");
-			seatNumber = inputValidation(i);
+			seatNumber = inputValidation(i); // recursion
 		}
 		return seatNumber;
 	}
