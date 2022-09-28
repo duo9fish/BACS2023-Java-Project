@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class mainProgram {
     public static void main(String[] args) {
-        Boolean cont;
+        Boolean cont = true;
         do {
             //// --MOVIES MODULE--////
             Movie movie = new Movie();
@@ -167,17 +167,18 @@ public class mainProgram {
 
     public static Boolean askCustomer() {
         Scanner sc = new Scanner(System.in);
-        char tf = sc.next().charAt(0); // get character input (y / n)
         Boolean cont = true;
         try {
             System.out.println("Any more customers? (y / n) : ");
-            
+            char tf = sc.next().charAt(0); // get character input (y / n)
+
+            switch(tf) {
+                case 'y': cont = true; 
+                case 'n': cont = false;
+            }
+
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please try again.");
-        }
-        switch(tf) {
-            case 'y': cont = true; 
-            case 'n': cont = false; 
         }
         return cont;
     }
