@@ -57,19 +57,23 @@ public class mainProgram {
 
                 adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
-                // Input Quantity of Children tickets
-                childQuantity = children.input(totalQuantity);
-                totalQuantity -= childQuantity;
-
-                adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
-
                 // Input Quantity of Student tickets
                 studentQuantity = student.input(totalQuantity);
                 totalQuantity -= studentQuantity;
 
+                adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
+
+                // Input Quantity of Children tickets
+                if (movies[movieChose-1].getMoviePGRating() != "18+") {
+                    childQuantity = children.input(totalQuantity);
+                    totalQuantity -= childQuantity;
+                }
+                else { 
+                    childQuantity = 0;
+                }
+
                 if (totalQuantity != 0) {
-                    System.out.println(
-                            "Total ticket count does not match with total quantity of tickets needed, Please try again!");
+                    System.out.println("Total ticket count does not match with total quantity of tickets needed, Please try again!");
                 }
             } while (totalQuantity != 0);
 

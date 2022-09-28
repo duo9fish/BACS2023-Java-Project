@@ -29,6 +29,10 @@ public class Movie {
         return movieHallNumber;
     }
 
+    public String getMoviePGRating() {
+        return moviePGRating;
+    }
+
     public void printMovieDetails() {
         System.out.printf("|%-20s|%-10s|%-10s|%-10s|%-10s|%-18s|\n", movieName, movieLang, movieGenre, movieTime,
                 moviePGRating, movieHallNumber);
