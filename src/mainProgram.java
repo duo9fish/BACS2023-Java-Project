@@ -125,9 +125,9 @@ public class mainProgram {
             printLine();
             System.out.println("Category\t|Ticket Quantity\t|Pricing(RM Per Unit)\t|Total Pricing(RM)\t|");
             printLine();
-            System.out.print("Adult\t\t|" + adultQuantity + "\t\t\t|" + adultTickets + "\t\t\t|");
-            System.out.print("\nChild\t\t|" + childQuantity + "\t\t\t|" + childTickets + "\t\t\t|");
-            System.out.print("\nStudent\t\t|" + studentQuantity + "\t\t\t|" + studentTickets + "\t\t\t|\n");
+            System.out.print("Adult\t\t|" + adultQuantity + "\t\t\t|" + adultTickets.toString() + "\t\t\t|");
+            System.out.print("\nChild\t\t|" + childQuantity + "\t\t\t|" + childTickets.toString() + "\t\t\t|");
+            System.out.print("\nStudent\t\t|" + studentQuantity + "\t\t\t|" + studentTickets.toString() + "\t\t\t|\n");
             printLine();
             System.out.println("Total(RM) : \t" + pay.getAmount());
             printLine();
