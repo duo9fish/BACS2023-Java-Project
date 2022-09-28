@@ -38,8 +38,8 @@ public class mainProgram {
             //// --------------------////
 
             //// --TICKETING MODULE--////
-            //Customer customers = new Customer();
-            Adult adult = new Adult();  // added this three
+            // create three object to call methods
+            Adult adult = new Adult();  
             Children children = new Children();
             Student student = new Student();
 
@@ -52,21 +52,18 @@ public class mainProgram {
                 totalQuantity = adult.inputValidation(); // input and validation
 
                 // Input Quantity of Adult tickets
-                //Adult adult = new Adult();
                 adultQuantity = adult.input(totalQuantity);
                 totalQuantity -= adultQuantity;
 
                 adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
                 // Input Quantity of Children tickets
-                //Children children = new Children();
                 childQuantity = children.input(totalQuantity);
                 totalQuantity -= childQuantity;
 
                 adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
                 // Input Quantity of Student tickets
-                //Student student = new Student();
                 studentQuantity = student.input(totalQuantity);
                 totalQuantity -= studentQuantity;
 
