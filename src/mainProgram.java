@@ -38,31 +38,35 @@ public class mainProgram {
             //// --------------------////
 
             //// --TICKETING MODULE--////
-            Customer customers = new Customer();
+            //Customer customers = new Customer();
+            Adult adult = new Adult();  // added this three
+            Children children = new Children();
+            Student student = new Student();
+
             int totalQuantity,
                 adultQuantity,
                 childQuantity,
                 studentQuantity;
             // Input Total Quantity of Ticket
             do {
-                totalQuantity = customers.inputValidation(); // input and validation
+                totalQuantity = adult.inputValidation(); // input and validation
 
                 // Input Quantity of Adult tickets
-                Adult adult = new Adult();
+                //Adult adult = new Adult();
                 adultQuantity = adult.input(totalQuantity);
                 totalQuantity -= adultQuantity;
 
-                customers.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
+                adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
                 // Input Quantity of Children tickets
-                Children children = new Children();
+                //Children children = new Children();
                 childQuantity = children.input(totalQuantity);
                 totalQuantity -= childQuantity;
 
-                customers.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
+                adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
                 // Input Quantity of Student tickets
-                Student student = new Student();
+                //Student student = new Student();
                 studentQuantity = student.input(totalQuantity);
                 totalQuantity -= studentQuantity;
 
