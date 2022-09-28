@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.InputMismatchException; // char validation
 
 public abstract class Customer { // abstract applied
 
@@ -97,30 +96,19 @@ public abstract class Customer { // abstract applied
     public Boolean askCustomer() {
         Scanner sc = new Scanner(System.in);
         boolean cont = true;
-        char tf = 'Y';
-        try {
+        char confirm = 'Y';
 
-            System.out.println("Any more customers? (y / n) : ");
-            tf = sc.next().charAt(0); // get character input (y / n)
-            tf = Character.toUpperCase(tf);
-
-            switch (tf) {
-                case 'Y':
-                    cont = true;
-                    break;
-                case 'N':
-                    cont = false;
-                    break;
-                default: 
-                System.out.println("Invalid");
-
-            }
-
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please try again.");
+        System.out.print("\nAny more customers? (y / n) : ");
+        confirm = sc.next().charAt(0); // get character input (y / n)
+        confirm = Character.toUpperCase(confirm); // make char input uppercase
+        switch (confirm) {
+            case 'Y': cont = true; break;
+            case 'N': cont = false; break;
+            default: 
+                System.out.println("Invalid input. Please try again."); 
+                cont = askCustomer(); // recursion
+                break;
         }
-        
-
         return cont;
     }
 }

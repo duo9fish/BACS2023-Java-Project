@@ -54,32 +54,29 @@ public class Theatre {
 		}
 	}
 
-	public int inputValidation(int i) {
+	public int inputValidation(int i) { // input seats then validate it
 		Scanner sc = new Scanner(System.in); // declare scanner object
 		int seatNumber;
-		Boolean validate_retry = true;
 
-		do {
-			System.out.print("\nEnter Seat Number " + (i + 1) + " : ");
-			while (!sc.hasNextInt()) {
-				System.out.println("Invalid input! Please enter numbers only.");
-				System.out.print("\nEnter Seat Number " + (i + 1) + " : ");
-				sc.next();
+		System.out.print("\nEnter Seat Number " + (i + 1) + " : ");
+		seatNumber = sc.nextInt();
+
+		for (int j = 0; j < takenSeats.size(); j++) { // linear search through whole takenSeats array
+			if (seatNumber == takenSeats.get(j).getSeatNumber()) {
+				System.out.println("Seat has been taken. Please select again.");
+				seatNumber = inputValidation(i);
 			}
-			seatNumber = sc.nextInt();
-			if (seatNumber < 101 || seatNumber > 330) {
-				System.out.println("Selected seat out of class seat range. Please select again.");
-				System.out.print("\nEnter Seat Number " + (i + 1) + " : "); // input seat number
-				seatNumber = sc.nextInt();
-			} else {
-				validate_retry = false;
-			}
-		} while (validate_retry);
+		}
+
+		if (seatNumber < 101 || seatNumber > 190) {
+			System.out.println("Selected seat out of class seat range. Please select again.");
+			seatNumber = inputValidation(i);
+		}
 		return seatNumber;
 	}
 
 	public void removeSeat(int seatNumber) {
-		for (int i = 0; i < availableSeats.length; i++) {
+		for (int i = 0; i < availableSeats.length; i++) { // linear search through whole availableSeats array
 			if (seatNumber == availableSeats[i]) {
 				availableSeats[i] = 0; // seat occupied
 			}
