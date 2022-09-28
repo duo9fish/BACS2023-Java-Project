@@ -56,26 +56,4 @@ public class Movie {
         } while (movieNum < 1 || movieNum > movies.length);
         return movieNum;
     }
-
-    //Added getter
-    public String getMovieLang() {
-        return movieLang;
-    }
-
-    public String getMovieGenre() {
-        return movieGenre;
-    }
-
-    public String getMovieTime() {
-        return movieTime;
-    }
-
-    public String getMoviePGRating() {
-        return moviePGRating;
-    }
-
-    public int getMovieHallNumber() {
-        return movieHallNumber;
-    }
-    
 }
