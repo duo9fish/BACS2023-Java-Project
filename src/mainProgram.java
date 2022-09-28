@@ -38,7 +38,7 @@ public class mainProgram {
 
             //// --TICKETING MODULE--////
             // create three object to call methods
-            Adult adult = new Adult();  
+            Adult adult = new Adult();
             Children children = new Children();
             Student student = new Student();
 
@@ -63,16 +63,16 @@ public class mainProgram {
                 adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
                 // Input Quantity of Children tickets
-                if (movies[movieChose-1].getMoviePGRating() != "18+") {
+                if (movies[movieChose - 1].getMoviePGRating() != "18+") {
                     childQuantity = children.input(totalQuantity);
                     totalQuantity -= childQuantity;
-                }
-                else { 
+                } else {
                     childQuantity = 0;
                 }
 
                 if (totalQuantity != 0) {
-                    System.out.println("Total ticket count does not match with total quantity of tickets needed, Please try again!");
+                    System.out.println(
+                            "Total ticket count does not match with total quantity of tickets needed, Please try again!");
                 }
             } while (totalQuantity != 0);
 
@@ -131,7 +131,7 @@ public class mainProgram {
             System.out.print("\nChild\t\t|" + childQuantity + "\t\t\t|" + childTickets.toString() + "\t\t\t|");
             System.out.print("\nStudent\t\t|" + studentQuantity + "\t\t\t|" + studentTickets.toString() + "\t\t\t|\n");
             printLine();
-            System.out.println("Total(RM) : \t" + String.format("%.2f", pay.getAmount()));
+            System.out.println("Total(RM) : \t" + pay.getAmount());
             printLine();
             // Press Enter To Proceed to Payment
             pay.pressEnterToProceed();
@@ -140,7 +140,7 @@ public class mainProgram {
             System.out.print("\033[H\033[2J");
             System.out.flush();
             printLine();
-            System.out.println("|Total Payable(RM): " + String.format("%.2f", pay.getAmount()) + "\t\t\t\t\t\t\t\t|");
+            System.out.println("|Total Payable(RM): " + pay.getAmount() + "\t\t\t\t\t\t\t\t|");
             System.out.println("|Select Your Payment Method\t\t\t\t\t\t\t\t|");
             printLine();
             System.out.println("|1. Cash Payment\t\t\t\t\t\t\t\t\t| \n|2. Credit/Debit Card Payment\t\t\t\t\t\t\t\t|");
@@ -161,7 +161,7 @@ public class mainProgram {
             tic.printTicket(adultQuantity, childQuantity, studentQuantity, hallNumber, theatre,
                     movies[movieChose - 1].getMovieName(), adu.calPrice(), chi.calPrice(), stu.calPrice());
             // Check if anymore customer
-            cont = adult.askCustomer();  // the method is in Customer table to check condition
+            cont = adult.askCustomer(); // the method is in Customer table to check condition
         } while (cont);
     }
 
