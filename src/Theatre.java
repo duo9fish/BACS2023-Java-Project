@@ -64,16 +64,16 @@ public class Theatre {
 		}
 		seatNumber = sc.nextInt(); // collect input (integer)
 
+		if (seatNumber < 101 || seatNumber > 190) { // check if input exceeded range
+			System.out.println("Selected seat out of class seat range. Please select again.");
+			seatNumber = inputValidation(i); // recursion
+		}
+
 		for (int j = 0; j < takenSeats.size(); j++) { // check if input seat has already been taken (linear search through whole takenSeats array)
 			if (seatNumber == takenSeats.get(j).getSeatNumber()) {
 				System.out.println("Seat has been taken. Please select again.");
 				seatNumber = inputValidation(i); // recursion
 			}
-		}
-
-		if (seatNumber < 101 || seatNumber > 190) { // check if input exceeded range
-			System.out.println("Selected seat out of class seat range. Please select again.");
-			seatNumber = inputValidation(i); // recursion
 		}
 		return seatNumber;
 	}
