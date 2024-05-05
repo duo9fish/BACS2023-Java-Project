@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class mainProgram {
     public static void main(String[] args) {
         Boolean cont = true;
+        MovieModule movieModule = new MovieModule();
+        
 
         // Create theatre objects (under 3. SEAT SELECTION MODULE) - theatre halls only
         // need to be created once (else clears takenSeats after each loop)
@@ -16,35 +18,17 @@ public class mainProgram {
 
         do {
             //// --1. MOVIES MODULE--////
-            Movie movie = new Movie();
-            Movie movies[] = {
-                    new Movie("Star Wars", "English", "Sci-Fi", "3:00PM", "13+", 2),
-                    new Movie("Your Name", "Japanese", "Fiction", "5:00PM", "13+", 5),
-                    new Movie("Deadpool", "English", "Comics", "5:00PM", "18+", 1),
-                    new Movie("Among Us", "English", "Sci-Fi", "8:00PM", "13+", 3),
-                    new Movie("Imposter", "English", "History", "9:00PM", "18+", 4)
-            };
-
             // Display Header and Available Movies
-            System.out.printf("\nWelcome to XXXX Movie Ticketing System" +
-                    "\n======================================\n");
-            System.out.println("\nAvailable Movies for today: ");
-            movie.movieTableHeader();
-            for (int i = 0; i < 5; i++) {
-                System.out.printf("|%-3d", i + 1);
-                movies[i].printMovieDetails();
-            }
-            printLine();
+            movieModule.displayMovies();
+            int movieChosenIndex = movieModule.selectMovie();
+            Movie selectedMovie = movieModule.getSelectedMovie(movieChosenIndex - 1);
 
-            // Input movie Number
-            int movieChose = movie.inputValidation(movies);
-
-            // Display movie Chosen
             System.out.println("\nMovie Chosen: ");
-            movie.movieTableHeader();
-            System.out.printf("|%-3d", movieChose);
-            movies[movieChose - 1].printMovieDetails();
-            printLine();
+            selectedMovie.movieTableHeader();
+            System.out.printf("|%-3d", movieChosenIndex);
+            selectedMovie.printMovieDetails();
+            PaymentUtil.printLine();
+
             //// --------------------////
 
             //// --2. TICKETING MODULE--////
@@ -74,7 +58,7 @@ public class mainProgram {
                 adult.ticketsLeft(totalQuantity); // Print total tickets (specified by user prior) left
 
                 // Input Quantity of Children tickets
-                if (movies[movieChose - 1].getMoviePGRating() != "18+") {
+                if (selectedMovie.getMoviePGRating() != "18+") {
                     childQuantity = children.input(totalQuantity);
                     totalQuantity -= childQuantity;
                 } else {
@@ -97,7 +81,7 @@ public class mainProgram {
             //// -- 3. SEAT SELECTION MODULE--////
 
             // Display seat diagram (based on hall number)
-            int hallNumber = movies[movieChose - 1].getMovieHallNumber();
+            int hallNumber = selectedMovie.getMovieHallNumber();
             Theatre theatre = halls[hallNumber - 1];
             theatre.displaySeats(hallNumber);
 
@@ -163,7 +147,7 @@ public class mainProgram {
                             + " Student Ticket(s)");
             printLine();
             tic.printTicket(adultQuantity, childQuantity, studentQuantity, theatre,
-                    movies[movieChose - 1].getMovieName(), adu.calPrice(), chi.calPrice(), stu.calPrice());
+                    selectedMovie.getMovieName(), adu.calPrice(), chi.calPrice(), stu.calPrice());
             // Check if anymore customer
             cont = adult.askCustomer(); // the method is in Customer table to check condition
         } while (cont);
